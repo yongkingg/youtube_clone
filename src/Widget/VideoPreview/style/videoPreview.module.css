@@ -1,0 +1,6 @@
+.video_preview {
+  min-width: 426px;
+  padding-top: 12px;
+  display: flex;
+  flex-direction: column;
+}

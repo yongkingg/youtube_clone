@@ -2,7 +2,6 @@ import style from "./style/comment.module.css";
 
 const Comment = (props) => {
   const { element } = props;
-  console.log(element.writerIcon);
 
   return (
     <div className={style.comment}>

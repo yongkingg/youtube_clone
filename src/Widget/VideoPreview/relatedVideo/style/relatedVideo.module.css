@@ -1,0 +1,31 @@
+.related_video {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  padding: 12px 0px;
+}
+
+.related_video_thum {
+  width: 168px;
+  height: 94px;
+  border-radius: 8px;
+}
+
+.related_video_title {
+  font-family: var(--font);
+  font-size: 14px;
+}
+
+.related_video_info {
+  font-family: var(--font);
+  font-size: 12px;
+}
+
+.column_set {
+  display: flex;
+  flex-direction: column;
+}
+
+.gap_4px {
+  gap: 4px;
+}
