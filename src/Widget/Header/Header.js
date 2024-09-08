@@ -2,12 +2,13 @@ import HoverButton from "../../Shared/HoverButton";
 import style from "./style/header.module.css";
 import video from "./asset/video.svg";
 import alert from "./asset/alert.svg";
-import avatar from "./asset/avatar.svg";
+import avatar from "../../Shared/asset/avatar.svg";
 
 const Header = (props) => {
   const { menuClick, setPage } = props;
+
   const returnHome = () => {
-    setPage(null);
+    setPage("main");
   };
 
   const headerButtons = [

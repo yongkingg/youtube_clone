@@ -1,9 +1,10 @@
 import style from "./style/main.module.css";
-import VideoArea from "../../Widget/VideoArea";
-const Main = () => {
+import VideoArea from "../../Widget/VideoArea/VideoArea";
+const Main = (props) => {
+  const { setPage, setVideo } = props;
   return (
     <div className={style.main_container}>
-      <VideoArea />
+      <VideoArea setPage={setPage} setVideo={setVideo} />
     </div>
   );
 };
