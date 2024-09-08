@@ -7,7 +7,6 @@ const usePage = () => {
     setPage(pageName);
   };
 
-  console.log(page);
   return [page, setCurrentPage];
 };
 

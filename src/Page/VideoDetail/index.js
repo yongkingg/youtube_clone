@@ -1,8 +1,9 @@
 import style from "./style/videoDetail.module.css";
 import CommentArea from "../../Widget/CommentArea/CommentArea";
 import VideoPreview from "../../Widget/VideoPreview/VideoPreview";
+
 const VideoDetail = (props) => {
-  const { page, setPage, video, setVideo } = props;
+  const { video, setVideo } = props;
   return (
     <div className={style.row_set}>
       <>

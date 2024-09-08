@@ -1,0 +1,83 @@
+.shorts_area {
+  flex-grow: 1;
+  position: relative;
+  padding: 16px;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: calc(100% - 67px);
+}
+
+.shorts_next_btn_container {
+  width: fit-content;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.shorts_up {
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  margin: 8px 24px;
+  border-radius: 50%;
+  background-color: black;
+  background-image: url(../asset/up.svg);
+  background-size: 24px !important;
+}
+
+.shorts_down {
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  margin: 8px 24px;
+  border-radius: 50%;
+  background-color: black;
+  background-image: url(../asset/down.svg);
+  background-size: 24px !important;
+}
+
+.default_pos {
+  top: calc(50% - 56px);
+  right: 0;
+}
+
+.after_down_pos {
+  animation: move_down 0.5s ease forwards;
+}
+
+.after_up_pos {
+  animation: move_up 0.5s ease forwards;
+}
+
+@keyframes move_down {
+  from {
+    top: calc(50% - 56px);
+    right: 0;
+  }
+  to {
+    top: calc(50% - 21px);
+    right: 0;
+  }
+}
+
+@keyframes move_up {
+  from {
+    top: calc(50% - 56px);
+    right: 0;
+  }
+  to {
+    top: calc(50% - 91px);
+    right: 0;
+  }
+}
+
+.svg_back {
+  background-position: center;
+  background-repeat: no-repeat;
+}

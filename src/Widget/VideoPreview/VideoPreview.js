@@ -9,7 +9,6 @@ const VideoPreview = (props) => {
   const videoClickEvent = (e) => {
     const videoId = e.target.closest(`[data-role="related_video"]`).dataset
       .videoId;
-    console.log(videoId);
     setVideo(relateVideoData[videoId]);
   };
 

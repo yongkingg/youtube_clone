@@ -27,7 +27,6 @@ const Aside = React.memo((props) => {
   ];
 
   const { isMenuClicked, setPage } = props;
-  console.log(isMenuClicked);
   return (
     <>
       {isMenuClicked ? (

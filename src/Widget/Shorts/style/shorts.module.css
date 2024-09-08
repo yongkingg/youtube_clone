@@ -1,0 +1,327 @@
+.shorts_container {
+  display: flex;
+  flex-direction: row;
+  min-width: 450px;
+  height: calc(100vh - 91px);
+  aspect-ratio: 9/16;
+
+  position: relative;
+}
+
+.shorts {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 820px;
+  background-image: url(../asset/shorts_test_img.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 24px;
+  z-index: 1;
+}
+
+.shorts_info_container {
+  position: absolute;
+  width: calc(100% - 32px);
+  bottom: 42px;
+  left: 16px;
+}
+
+.shorts_button_container {
+  margin: 16px;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.shorts_slide_left {
+  border-radius: 24px 0 0 24px;
+  animation: shorts_slide_left 0.5s ease forwards;
+}
+
+.shorts_slide_right {
+  border-radius: 24px;
+  animation: shorts_slide_right 0.5s ease forwards;
+}
+
+@keyframes shorts_slide_left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes shorts_slide_right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.shorts_comment_box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 450px;
+  min-width: 450px;
+  aspect-ratio: 9/16;
+  border-radius: 0 20px 20px 0;
+  box-shadow: 1px 1px 8px lightgrey;
+}
+
+.comment_slide_left {
+  border-radius: 24px 0 0 24px;
+  animation: comment_slide_left 0.5s ease forwards;
+}
+
+.comment_slide_right {
+  border-radius: 24px;
+  animation: comment_slide_right 0.5s ease forwards;
+}
+
+@keyframes comment_slide_left {
+  from {
+    transform: translateX(50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes comment_slide_right {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(50%);
+  }
+}
+.shorts_button_container button {
+  width: 48px;
+  height: 48px;
+  border: 2px solid black;
+  background-color: black;
+  border-radius: 50%;
+}
+
+.shorts_owner_box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+}
+
+.shorts_owner_box img {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background-image: url("https://yt3.ggpht.com/P5HXQNMuTDRWwudWf7SyRX47GmPQvgo3hfpEniFCAA6vhSFBjU8oEVqHStEErz2PjJXMhuK3nw=s88-c-k-c0x00ffffff-no-rj");
+  background-size: contain;
+}
+
+.shorts_owner_box h1 {
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.shorts_owner_box button {
+  width: 48px;
+  height: 32px;
+  background-color: black;
+  border-radius: 16px;
+  color: white;
+  font-family: var(--font);
+  font-size: 12px;
+}
+
+.shorts_title {
+  padding: 4px 0;
+  margin-top: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+}
+
+.shorts_interaction_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: end;
+  gap: 16px;
+  margin-left: 8px;
+}
+
+.closed_interaction_box {
+  position: absolute;
+  right: -56px;
+  bottom: 0;
+}
+
+.opened_interaction_box {
+  position: absolute;
+  bottom: 0;
+  right: 8px;
+}
+
+.shorts_like {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-size: 24px !important;
+  background-color: black;
+  background-image: url(../asset/shorts_like.svg);
+  background-position: center;
+}
+
+.shorts_dislike {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-size: 24px !important;
+  background-color: black;
+  background-image: url(../asset/shorts_dislike.svg);
+}
+
+.shorts_comment {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-size: 24px !important;
+  background-color: black;
+  background-image: url(../asset/comment.svg);
+}
+
+.shorts_share {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-size: 24px !important;
+  background-color: black;
+  background-image: url(../asset/share.svg);
+}
+
+.shorts_option {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-size: 24px !important;
+  background-color: black;
+  background-image: url(../asset/option.svg);
+}
+
+.comment_tool_container {
+  padding: 4px 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.comment_tool_container h1 {
+  font-size: 20px;
+  font-family: var(--font);
+  font-weight: 900;
+}
+
+.comment_tool_container h3 {
+  font-size: 16px;
+  font-family: var(--font);
+  margin-left: 16px;
+}
+
+.comment_input_container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding: 16px;
+}
+
+.comment_input_container input {
+  margin-left: 16px;
+  border: none;
+  border-bottom: 1px solid lightgray;
+  width: calc(100% - 16px);
+}
+
+.comment_input_container input::placeholder {
+  color: grey;
+}
+
+.comment_input_container input:focus {
+  animation-name: border_change;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.comment_list {
+  padding: 4px 16px;
+  height: calc(100% - 121px);
+  overflow-y: auto;
+}
+
+.menu_button {
+  margin-left: auto;
+  width: 40px;
+  height: 40px;
+  background-image: url(../asset/comment_menu.svg);
+  background-size: 24px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.exit_button {
+  width: 40px;
+  height: 40px;
+  background-image: url(../asset/comment_exit.svg);
+  background-size: 24px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.svg_back {
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.shorts_interaction_text {
+  font-size: 14px;
+  margin-top: 4px;
+  font-family: var(--font);
+  text-align: center;
+}
+
+.play {
+  background-size: 32px !important;
+  background-image: url(../asset/play.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.pause {
+  background-size: 32px !important;
+  background-image: url(../asset/pause.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.mute {
+  background-size: 24px !important;
+  background-image: url(../asset/mute.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.un_mute {
+  background-size: 24px !important;
+  background-image: url(../asset/un_mute.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
