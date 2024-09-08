@@ -2,7 +2,7 @@ import "../Shared/style/setting.css";
 import Aside from "../Widget/Aside/Aside";
 import Header from "../Widget/Header/Header";
 import useMenuClick from "./lib/useMenuClick";
-import useSetVideo from "../Page/lib/useSetVideo";
+import useSetVideo from "./lib/useSetVideo";
 import React from "react";
 import style from "./style/index.module.css";
 import { BrowserRouter as Router } from "react-router-dom";

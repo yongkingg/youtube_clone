@@ -2,8 +2,8 @@ import style from "./style/shorts.module.css";
 import React from "react";
 import useShortData from "./lib/useShortData";
 import ShortsButton from "./shortsButton/shortsButton";
-import HoverButton from "../../Shared/HoverButton";
-import Comment from "../../Shared/Comment/Comment";
+import HoverButton from "../../Shared/components/HoverButton";
+import Comment from "../../Shared/components/Comment/Comment";
 import avatar from "../../Shared/asset/avatar.svg";
 
 const Shorts = React.memo(() => {

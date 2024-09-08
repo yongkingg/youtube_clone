@@ -1,6 +1,6 @@
 import useCommentData from "./lib/useCommentData";
-import HoverButton from "../../Shared/HoverButton";
-import Comment from "../../Shared/Comment/Comment";
+import HoverButton from "../../Shared/components/HoverButton";
+import Comment from "../../Shared/components/Comment/Comment";
 import style from "./style/commentArea.module.css";
 import avatar from "../../Shared/asset/avatar.svg";
 const CommentArea = () => {
