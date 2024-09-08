@@ -11,7 +11,10 @@ const App = () => {
   return (
     <>
       <Header menuClick={toggleMenu} setPage={setPage} />
-      <Aside isMenuClicked={isMenuClicked} setPage={setPage} />
+      <div style={{ display: "flex", marginTop: "59px" }}>
+        <Aside isMenuClicked={isMenuClicked} setPage={setPage} />
+        <Page page={page} setPage={setPage} />
+      </div>
     </>
   );
 };

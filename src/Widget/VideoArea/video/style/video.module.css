@@ -1,0 +1,46 @@
+.video {
+  flex: 1 0 310px;
+  height: 330px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.video_info_box {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.video_thumnail {
+  width: 100%;
+  height: 210px;
+  border-radius: 12px;
+}
+
+.video_title {
+  font-family: var(--font);
+  font-size: 16px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.video_info {
+  font-family: var(--font);
+  font-size: 14px;
+}
+
+.video_icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+}
+
+.tmp_box {
+  display: flex;
+  flex-direction: row;
+  padding-top: 10px;
+  gap: 8px;
+}
