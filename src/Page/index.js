@@ -1,18 +1,20 @@
+import React from "react";
+import { Routes, Route } from "react-router-dom";
 import Main from "./Main";
 import VideoDetail from "./VideoDetail";
-import useSetVideo from "./lib/useSetVideo";
 import ShortsArea from "./ShortsArea";
+
 const Page = (props) => {
-  const { page, setPage } = props;
-  const [video, setVideo] = useSetVideo();
+  const { video, setVideo } = props;
   return (
-    <>
-      {page === "main" && <Main setPage={setPage} setVideo={setVideo} />}
-      {page === "video_detail" && (
-        <VideoDetail video={video} setVideo={setVideo} />
-      )}
-      {page === "shorts" && <ShortsArea />}
-    </>
+    <Routes>
+      <Route path="/" element={<Main setVideo={setVideo} />} />
+      <Route
+        path="/video_detail"
+        element={<VideoDetail video={video} setVideo={setVideo} />}
+      />
+      <Route path="/shorts" element={<ShortsArea />} />
+    </Routes>
   );
 };
 

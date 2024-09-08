@@ -2,16 +2,18 @@ import useVideoData from "./lib/useVideoData";
 import style from "./style/videoArea.module.css";
 import React from "react";
 import Video from "./video";
+import { useNavigate } from "react-router-dom";
 
 const VideoArea = React.memo((props) => {
-  const { setPage, setVideo } = props;
+  const { setVideo } = props;
   const [videoData] = useVideoData();
+  const navigate = useNavigate();
 
   const videoClickEvent = (e) => {
     try {
       const videoId = e.target.closest(`[data-role="video"]`).dataset.videoId;
       setVideo(videoData[videoId]);
-      setPage("video_detail");
+      navigate("/video_detail");
     } catch (e) {
       console.error("Error in videoClickEvent:", e);
     }

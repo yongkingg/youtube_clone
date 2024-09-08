@@ -3,12 +3,14 @@ import style from "./style/header.module.css";
 import video from "./asset/video.svg";
 import alert from "./asset/alert.svg";
 import avatar from "../../Shared/asset/avatar.svg";
+import { useNavigate } from "react-router-dom";
 
 const Header = (props) => {
-  const { menuClick, setPage } = props;
+  const { menuClick } = props;
+  const navigate = useNavigate();
 
   const returnHome = () => {
-    setPage("main");
+    navigate("/");
   };
 
   const headerButtons = [

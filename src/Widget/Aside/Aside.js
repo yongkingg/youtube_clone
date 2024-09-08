@@ -26,13 +26,13 @@ const Aside = React.memo((props) => {
     },
   ];
 
-  const { isMenuClicked, setPage } = props;
+  const { isMenuClicked } = props;
   return (
     <>
       {isMenuClicked ? (
-        <OpenAside setPage={setPage} buttons={asideButtons} />
+        <OpenAside buttons={asideButtons} />
       ) : (
-        <CloseAside setPage={setPage} buttons={asideButtons} />
+        <CloseAside buttons={asideButtons} />
       )}
     </>
   );

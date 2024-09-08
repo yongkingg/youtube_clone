@@ -1,18 +1,21 @@
 import CloseAsideButton from "./CloseAsideButton";
 import React from "react";
 import style from "./style/closeAside.module.css";
+import { useNavigate } from "react-router-dom";
 
 const CloseAside = (props) => {
-  const { setPage, buttons } = props;
+  const { buttons } = props;
+  const navigate = useNavigate();
+
   const clickEvent = (e) => {
     try {
       let clickedBtn = parseInt(e.target.closest("a").dataset.buttonId, 10);
       switch (clickedBtn) {
         case 0:
-          setPage("main");
+          navigate("/");
           break;
         case 1:
-          setPage("shorts");
+          navigate("/shorts");
           break;
         case 3:
           console.log("구독");
