@@ -1,5 +1,42 @@
-import styles from "./style/aside.module.css";
+import OpenAside from "./OpenedAside/OpenAside";
+import CloseAside from "./ClosedAside/CloseAside";
+import home from "./asset/home.svg";
+import shorts from "./asset/shorts.svg";
+import subscribe from "./asset/subscribe.svg";
+import me from "./asset/me.svg";
+import React from "react";
 
-const Aside = () => {};
+const Aside = React.memo((props) => {
+  const asideButtons = [
+    {
+      name: "홈",
+      image: home,
+    },
+    {
+      name: "Shorts",
+      image: shorts,
+    },
+    {
+      name: "구독",
+      image: subscribe,
+    },
+    {
+      name: "나",
+      image: me,
+    },
+  ];
+
+  const { isMenuClicked, setPage } = props;
+  console.log(isMenuClicked);
+  return (
+    <>
+      {isMenuClicked ? (
+        <OpenAside setPage={setPage} buttons={asideButtons} />
+      ) : (
+        <CloseAside setPage={setPage} buttons={asideButtons} />
+      )}
+    </>
+  );
+});
 
 export default Aside;

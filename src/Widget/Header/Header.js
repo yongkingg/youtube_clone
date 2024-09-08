@@ -6,7 +6,6 @@ import avatar from "./asset/avatar.svg";
 
 const Header = (props) => {
   const { menuClick, setPage } = props;
-
   const returnHome = () => {
     setPage(null);
   };

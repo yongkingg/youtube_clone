@@ -1,6 +1,5 @@
 import style from "./style/hoverButton.module.css";
 const HoverButton = ({ imageUrl }) => {
-  console.log(imageUrl);
   return (
     <button
       className={style.tools_btn}

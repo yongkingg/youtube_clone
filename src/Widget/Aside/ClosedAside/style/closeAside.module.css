@@ -1,0 +1,41 @@
+.closed_aside {
+  width: 72px;
+  height: calc(100vh - 59px);
+  /* height : 100% */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 4px;
+  margin-top: 59px;
+  position: sticky;
+  top: 59px;
+  left: 0;
+}
+
+.closed_aside_button {
+  width: 64px;
+  height: 74px;
+  padding: 16px 0 14px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.closed_aside_button p {
+  font-size: 10px;
+}
+
+.closed_aside_button:hover {
+  background-color: #f2f2f2;
+  border-radius: 12px;
+}
+
+.button_img {
+  width: 24px;
+  height: 24px;
+  background-size: contain;
+  background-position: start;
+  background-repeat: no-repeat;
+}

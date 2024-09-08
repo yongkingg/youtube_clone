@@ -1,8 +1,8 @@
-import Aside from "../Widget/Aside";
-import Header from "../Widget/Header";
-import Page from "../Page";
-import useMenuClick from "./lib/hook/useMenuClick";
 import "../Shared/style/setting.css";
+import Aside from "../Widget/Aside";
+import Header from "../Widget/Header/Header";
+import Page from "../Page";
+import useMenuClick from "../Widget/Header/lib/useMenuClick";
 import React from "react";
 
 const App = () => {
@@ -11,8 +11,7 @@ const App = () => {
   return (
     <>
       <Header menuClick={toggleMenu} setPage={setPage} />
-      <Aside />
-      <Page page={page} setPage={setPage} />
+      <Aside isMenuClicked={isMenuClicked} setPage={setPage} />
     </>
   );
 };
