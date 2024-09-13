@@ -28,3 +28,5 @@ const VideoDetail = (props) => {
 };
 
 export default VideoDetail;
+
+// videoPreview를 여기로 땅겨야함

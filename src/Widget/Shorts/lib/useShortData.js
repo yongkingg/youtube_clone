@@ -29,3 +29,5 @@ const useShortData = () => {
 };
 
 export default useShortData;
+
+// 그대로 api 쪽으로

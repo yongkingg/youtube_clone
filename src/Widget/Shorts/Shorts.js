@@ -147,3 +147,6 @@ const Shorts = React.memo(() => {
 });
 
 export default Shorts;
+
+// shortsarea 안쪽으로 들어가는게 맞음
+// 왼쪽을 commentArea를 가져오는걸로 수정하고, commentArea에 comment 넣는게 맞음.

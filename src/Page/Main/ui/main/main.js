@@ -1,10 +1,9 @@
-import useVideoData from "./lib/useVideoData";
-import style from "./style/videoArea.module.css";
-import React from "react";
-import Video from "./video";
+import style from "./style/main.module.css";
+import useVideoData from "../../api/useVideoData";
 import { useNavigate } from "react-router-dom";
+import Video from "../video";
 
-const VideoArea = React.memo((props) => {
+const Main = (props) => {
   const { setVideo } = props;
   const [videoData] = useVideoData();
   const navigate = useNavigate();
@@ -20,12 +19,14 @@ const VideoArea = React.memo((props) => {
   };
 
   return (
-    <section className={style.video_area} onClick={videoClickEvent}>
-      {videoData?.map((element, index) => (
-        <Video key={index} element={element} />
-      ))}
-    </section>
+    <div className={style.video_area}>
+      <section className={style.video_area} onClick={videoClickEvent}>
+        {videoData?.map((element, index) => (
+          <Video key={index} element={element} />
+        ))}
+      </section>
+    </div>
   );
-});
+};
 
-export default VideoArea;
+export default Main;

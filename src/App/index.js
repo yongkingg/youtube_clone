@@ -1,6 +1,6 @@
 import "../Shared/style/setting.css";
-import Aside from "../Widget/Aside/Aside";
-import Header from "../Widget/Header/Header";
+import Aside from "./ui/Aside";
+import Header from "./ui/Header";
 import useMenuClick from "./lib/useMenuClick";
 import useSetVideo from "./lib/useSetVideo";
 import React from "react";
