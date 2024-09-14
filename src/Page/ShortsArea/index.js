@@ -1,23 +1,13 @@
 import style from "./style/short.module.css";
 import React from "react";
 import Shorts from "../../Widget/Shorts/Shorts";
+import useUpDown from "./model/useUpDown.js";
 
 const ShortsArea = () => {
-  const [isDownButtonClicked, setDownValue] = React.useState(false);
-  const clickEvent = (e) => {
-    try {
-      const clickedBtn = e.target.closest("[data-id]").dataset.id;
-      switch (clickedBtn) {
-        case "up":
-          break;
-        case "down":
-          setDownValue(!isDownButtonClicked);
-          break;
-      }
-    } catch (e) {}
-  };
+  const [isDownButtonClicked, setDownValue] = useUpDown();
+
   return (
-    <section className={style.shorts_area} onClick={clickEvent}>
+    <section className={style.shorts_area} onClick={setDownValue}>
       <Shorts />
       <button
         className={

@@ -1,6 +1,6 @@
 import CloseAsideButton from "./CloseAsideButton";
 import React from "react";
-import style from "./style/closeAside.module.css";
+import style from "./closeAside.module.css";
 import { useNavigate } from "react-router-dom";
 
 const CloseAside = (props) => {

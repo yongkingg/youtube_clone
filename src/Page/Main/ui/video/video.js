@@ -1,4 +1,4 @@
-import style from "./style/video.module.css";
+import style from "./video.module.css";
 
 const Video = (props) => {
   const { element } = props;
@@ -22,5 +22,3 @@ const Video = (props) => {
 };
 
 export default Video;
-
-// ui에 감싸고 넣었어야 함

@@ -1,9 +1,9 @@
-import style from "./style/closeAside.module.css";
+import style from "./openAside.module.css";
 
-const CloseAsideButton = (props) => {
+const OpenAsideButton = (props) => {
   const { buttons, index } = props;
   return (
-    <a className={style.closed_aside_button} data-button-id={index}>
+    <a className={style.opened_aside_button} data-button-id={index}>
       <div
         className={style.button_img}
         style={{ backgroundImage: `url(${buttons.image})` }}
@@ -13,4 +13,4 @@ const CloseAsideButton = (props) => {
   );
 };
 
-export default CloseAsideButton;
+export default OpenAsideButton;

@@ -1,8 +1,8 @@
-import useCommentData from "./lib/useCommentData";
-import HoverButton from "../../Shared/components/HoverButton";
-import Comment from "../../Shared/components/Comment/Comment";
-import style from "./style/commentArea.module.css";
-import avatar from "../../Shared/asset/avatar.svg";
+import useCommentData from "../lib/useCommentData";
+import HoverButton from "../../../Shared/components/HoverButton";
+import Comment from "../../../Shared/components/Comment/Comment";
+import style from "../style/commentArea.module.css";
+import avatar from "Shared/asset/avatar.svg";
 const CommentArea = () => {
   const [commentList] = useCommentData(3);
 

@@ -1,4 +1,5 @@
 import React from "react";
+
 const useRelatedVideoData = () => {
   const [relatedVideoList, setRelatedVideoList] = React.useState([]);
   React.useEffect(() => {
@@ -14,8 +15,8 @@ const useRelatedVideoData = () => {
         channelIcon:
           "https://yt3.ggpht.com/P5HXQNMuTDRWwudWf7SyRX47GmPQvgo3hfpEniFCAA6vhSFBjU8oEVqHStEErz2PjJXMhuK3nw=s88-c-k-c0x00ffffff-no-rj",
       });
-      setRelatedVideoList(tmpList);
     }
+    setRelatedVideoList(tmpList);
   }, []);
 
   return [relatedVideoList];

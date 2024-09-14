@@ -1,5 +1,5 @@
 import OpenAsideButton from "./OpenAsideButton";
-import style from "./style/openAside.module.css";
+import style from "./openAside.module.css";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 

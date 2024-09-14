@@ -1,5 +1,5 @@
-import OpenAside from "../OpenedAside/OpenAside";
-import CloseAside from "../ClosedAside/CloseAside";
+import OpenAside from "./OpenedAside/OpenAside";
+import CloseAside from "./ClosedAside/CloseAside";
 import home from "../asset/home.svg";
 import shorts from "../asset/shorts.svg";
 import subscribe from "../asset/subscribe.svg";

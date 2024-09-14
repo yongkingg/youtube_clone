@@ -1,4 +1,4 @@
-import style from "./style/relatedVideo.module.css";
+import style from "./relatedVideo.module.css";
 
 const RelatedVideo = (props) => {
   const { element } = props;

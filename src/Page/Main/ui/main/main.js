@@ -1,7 +1,8 @@
-import style from "./style/main.module.css";
-import useVideoData from "../../api/useVideoData";
+import style from "./main.module.css";
+
+import useVideoData from "App/model/useVideoData";
 import { useNavigate } from "react-router-dom";
-import Video from "../video";
+import Video from "../video/video";
 
 const Main = (props) => {
   const { setVideo } = props;
@@ -19,13 +20,11 @@ const Main = (props) => {
   };
 
   return (
-    <div className={style.video_area}>
-      <section className={style.video_area} onClick={videoClickEvent}>
-        {videoData?.map((element, index) => (
-          <Video key={index} element={element} />
-        ))}
-      </section>
-    </div>
+    <section className={style.video_area} onClick={videoClickEvent}>
+      {videoData?.map((element, index) => (
+        <Video key={index} element={element} />
+      ))}
+    </section>
   );
 };
 
