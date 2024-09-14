@@ -27,7 +27,7 @@
   margin: 8px 24px;
   border-radius: 50%;
   background-color: black;
-  background-image: url(../asset/up.svg);
+  background-image: url(../../../asset/up.svg);
   background-size: 24px !important;
 }
 
@@ -38,7 +38,7 @@
   margin: 8px 24px;
   border-radius: 50%;
   background-color: black;
-  background-image: url(../asset/down.svg);
+  background-image: url(../../../asset/down.svg);
   background-size: 24px !important;
 }
 

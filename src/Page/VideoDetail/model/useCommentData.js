@@ -15,9 +15,9 @@ const useCommentData = (count = 15) => {
       });
       setCommentList(tmpList);
     }
-  }, []);
+  }, [count]);
 
-  return [commentList];
+  return commentList;
 };
 
 export default useCommentData;

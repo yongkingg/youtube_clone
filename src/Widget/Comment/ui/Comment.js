@@ -1,5 +1,4 @@
-import style from "./style/comment.module.css";
-
+import style from "../style/comment.module.css";
 const Comment = (props) => {
   const { element } = props;
 

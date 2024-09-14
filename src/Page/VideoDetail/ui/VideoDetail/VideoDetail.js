@@ -1,12 +1,16 @@
 import style from "./videoDetail.module.css";
 import sub_style from "./videoPreview.module.css";
-import CommentArea from "../../../../Widget/CommentArea/ui/CommentArea";
 import useRelatedVideoData from "App/model/useRelatedVideoData";
 import RelatedVideo from "../RelatedVideo/RelatedVideo";
+import useCommentData from "../../model/useCommentData.js";
+import HoverButton from "Shared/components/HoverButton";
+import avatar from "Shared/asset/avatar.svg";
+import Comment from "Widget/Comment";
 
 const VideoDetail = (props) => {
   const { video, setVideo } = props;
   const [relateVideoData] = useRelatedVideoData();
+  const commentList = useCommentData(5);
 
   const videoClickEvent = (e) => {
     const videoId = e.target.closest(`[data-role="related_video"]`).dataset
@@ -29,7 +33,28 @@ const VideoDetail = (props) => {
               </div>
             </div>
           </div>
-          <CommentArea />
+          <section className={style.container}>
+            <>
+              <h1 className={style.comment_count}>
+                댓글 {commentList.length}개
+              </h1>
+              <div className={style.comment_input_box}>
+                <HoverButton imageUrl={avatar} />
+                <input></input>
+                <div className={style.input_line}></div>
+                <p className={style.placeholder}>댓글 추가</p>
+              </div>
+              <main className={style.comment_area}>
+                {commentList.length > 0 ? (
+                  commentList.map((element, index) => {
+                    return <Comment key={index} element={element} />;
+                  })
+                ) : (
+                  <p>로딩</p>
+                )}
+              </main>
+            </>
+          </section>
         </section>
       </>
       <section className={sub_style.video_preview} onClick={videoClickEvent}>
