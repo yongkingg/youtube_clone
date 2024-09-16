@@ -1,22 +1,23 @@
-import "../Shared/style/setting.css";
 import Aside from "./ui/Aside";
 import Header from "./ui/Header";
 import useMenuClick from "App/model/useMenuClick";
 import React from "react";
-import style from "./style/index.module.css";
+import Container from "./style/index";
 import { BrowserRouter as Router } from "react-router-dom";
 import Page from "../Page";
+import GlobalStyle from "./style/reset.js";
 
 const App = () => {
   const [isMenuClicked, toggleMenu] = useMenuClick();
 
   return (
     <Router>
+      <GlobalStyle />
       <Header menuClick={toggleMenu} />
-      <div className={style.container}>
+      <Container>
         <Aside isMenuClicked={isMenuClicked} />
         <Page />
-      </div>
+      </Container>
     </Router>
   );
 };

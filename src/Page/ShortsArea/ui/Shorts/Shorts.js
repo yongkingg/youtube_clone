@@ -1,6 +1,6 @@
 import style from "./style/shorts.module.css";
 import React from "react";
-import useShortData from "./lib/useShortData";
+import useShortData from "./shortsButton/lib/useShortData";
 import ShortsButton from "./shortsButton/shortsButton";
 import HoverButton from "Shared/components/HoverButton";
 import Comment from "Widget/Comment/ui/Comment";
