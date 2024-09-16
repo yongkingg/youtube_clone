@@ -10,14 +10,13 @@ import Page from "../Page";
 
 const App = () => {
   const [isMenuClicked, toggleMenu] = useMenuClick();
-  const [video, setVideo] = useSetVideo();
 
   return (
     <Router>
       <Header menuClick={toggleMenu} />
       <div className={style.container}>
         <Aside isMenuClicked={isMenuClicked} />
-        <Page video={video} setVideo={setVideo} />
+        <Page />
       </div>
     </Router>
   );

@@ -2,36 +2,42 @@ import style from "./videoDetail.module.css";
 import sub_style from "./videoPreview.module.css";
 import useRelatedVideoData from "App/model/useRelatedVideoData";
 import RelatedVideo from "../RelatedVideo/RelatedVideo";
-import useCommentData from "../../model/useCommentData.js";
+import useCommentData from "Page/VideoDetail/api/useCommentData";
 import Comment from "Widget/Comment";
 import CommentInput from "Widget/CommentInput";
-
-const VideoDetail = (props) => {
-  const { video, setVideo } = props;
-  const [relateVideoData] = useRelatedVideoData();
+import useGetQueryString from "Shared/model/useGetQueryString";
+import useGetVideoByIdx from "Page/VideoDetail/api/useGetVideoByIdx";
+import useVideoClick from "Page/Main/model/useVideoClick";
+const VideoDetail = () => {
+  const videoId = useGetQueryString();
+  const video = useGetVideoByIdx(videoId);
   const commentList = useCommentData(5);
-
-  const videoClickEvent = (e) => {
-    const videoId = e.target.closest(`[data-role="related_video"]`).dataset
-      .videoId;
-    setVideo(relateVideoData[videoId]);
-  };
+  const handleVideoClick = useVideoClick();
+  const [relateVideoData] = useRelatedVideoData();
 
   return (
     <div className={style.row_set}>
       <>
         <section className={style.video_detail}>
-          <div className={style.video_play_section}>
-            <img className={style.video_play_thum} src={video.thumnail}></img>
-            <h1 className={style.video_detail_title}>{video.title}</h1>
-            <div className={`${style.row_set} ${style.gap_12px}`}>
-              <img className={style.video_icon} src={video.channelIcon}></img>
-              <div className={style.video_detail_info}>
-                <h3>{video.name}</h3>
-                <h3>{video.info}</h3>
+          {video && (
+            <div className={style.video_play_section}>
+              <img
+                className={style.video_play_thum}
+                src={video.data.thumnail}
+              ></img>
+              <h1 className={style.video_detail_title}>{video.data.title}</h1>
+              <div className={`${style.row_set} ${style.gap_12px}`}>
+                <img
+                  className={style.video_icon}
+                  src={video.data.channelIcon}
+                ></img>
+                <div className={style.video_detail_info}>
+                  <h3>{video.data.name}</h3>
+                  <h3>{video.data.info}</h3>
+                </div>
               </div>
             </div>
-          </div>
+          )}
           <section className={style.container}>
             <>
               <h1 className={style.comment_count}>
@@ -51,7 +57,7 @@ const VideoDetail = (props) => {
           </section>
         </section>
       </>
-      <section className={sub_style.video_preview} onClick={videoClickEvent}>
+      <section className={sub_style.video_preview} onClick={handleVideoClick}>
         {relateVideoData?.map((element, index) => (
           <RelatedVideo key={index} element={element} />
         ))}

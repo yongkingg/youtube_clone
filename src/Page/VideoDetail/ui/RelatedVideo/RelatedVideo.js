@@ -6,7 +6,7 @@ const RelatedVideo = (props) => {
     <div
       className={style.related_video}
       data-video-id={element.index}
-      data-role="related_video"
+      data-role="video"
     >
       <img className={style.related_video_thum} src={element.thumnail}></img>
       <div className={`${style.column_set} ${style.gap_4px}`}>
