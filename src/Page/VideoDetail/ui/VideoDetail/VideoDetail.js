@@ -3,9 +3,8 @@ import sub_style from "./videoPreview.module.css";
 import useRelatedVideoData from "App/model/useRelatedVideoData";
 import RelatedVideo from "../RelatedVideo/RelatedVideo";
 import useCommentData from "../../model/useCommentData.js";
-import HoverButton from "Shared/components/HoverButton";
-import avatar from "Shared/asset/avatar.svg";
 import Comment from "Widget/Comment";
+import CommentInput from "Widget/CommentInput";
 
 const VideoDetail = (props) => {
   const { video, setVideo } = props;
@@ -38,12 +37,7 @@ const VideoDetail = (props) => {
               <h1 className={style.comment_count}>
                 댓글 {commentList.length}개
               </h1>
-              <div className={style.comment_input_box}>
-                <HoverButton imageUrl={avatar} />
-                <input></input>
-                <div className={style.input_line}></div>
-                <p className={style.placeholder}>댓글 추가</p>
-              </div>
+              <CommentInput />
               <main className={style.comment_area}>
                 {commentList.length > 0 ? (
                   commentList.map((element, index) => {
