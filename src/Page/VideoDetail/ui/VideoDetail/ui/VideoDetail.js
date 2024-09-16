@@ -1,13 +1,14 @@
 import style from "./videoDetail.module.css";
 import sub_style from "./videoPreview.module.css";
-import useRelatedVideoData from "App/model/useRelatedVideoData";
-import RelatedVideo from "../RelatedVideo/RelatedVideo";
-import useCommentData from "Page/VideoDetail/api/useCommentData";
+import useRelatedVideoData from "Page/VideoDetail/ui/RelatedVideo/api/useRelatedVideoData";
+import RelatedVideo from "../../RelatedVideo/ui/RelatedVideo";
+import useCommentData from "Page/VideoDetail/ui/VideoDetail/api/useCommentData";
 import Comment from "Widget/Comment";
 import CommentInput from "Widget/CommentInput";
 import useGetQueryString from "Shared/model/useGetQueryString";
 import useGetVideoByIdx from "Page/VideoDetail/api/useGetVideoByIdx";
-import useVideoClick from "Page/Main/model/useVideoClick";
+import useVideoClick from "Shared/model/useVideoClick";
+
 const VideoDetail = () => {
   const videoId = useGetQueryString();
   const video = useGetVideoByIdx(videoId);

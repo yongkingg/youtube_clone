@@ -1,7 +1,7 @@
 import style from "./main.module.css";
 import useVideoData from "Shared/api/useVideoData";
 import Video from "../video/video";
-import useVideoClick from "Page/Main/model/useVideoClick";
+import useVideoClick from "Shared/model/useVideoClick";
 
 const Main = () => {
   const [videoData] = useVideoData();

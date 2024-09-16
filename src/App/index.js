@@ -2,7 +2,6 @@ import "../Shared/style/setting.css";
 import Aside from "./ui/Aside";
 import Header from "./ui/Header";
 import useMenuClick from "App/model/useMenuClick";
-import useSetVideo from "App/model/useSetVideo";
 import React from "react";
 import style from "./style/index.module.css";
 import { BrowserRouter as Router } from "react-router-dom";
