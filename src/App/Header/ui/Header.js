@@ -1,4 +1,4 @@
-import HoverButton from "../../../../Shared/components/HoverButton";
+import HoverButton from "Shared/components/HoverButton";
 import style from "../style/header.module.css";
 import video from "../asset/video.svg";
 import alert from "../asset/alert.svg";

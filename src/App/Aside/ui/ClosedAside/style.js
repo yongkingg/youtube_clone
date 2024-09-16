@@ -1,4 +1,6 @@
-.closed_aside {
+import styled from "styled-components";
+
+export const ClosedAside = styled.div`
   width: 72px;
   height: calc(100vh - 59px);
   display: flex;
@@ -8,9 +10,9 @@
   position: sticky;
   top: 59px;
   left: 0;
-}
+`;
 
-.closed_aside_button {
+export const ClosedAsideButtons = styled.a`
   width: 64px;
   height: 74px;
   padding: 16px 0 14px;
@@ -19,21 +21,21 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
 
-.closed_aside_button p {
+  &:hover {
+    background-color: #f2f2f2;
+    border-radius: 0cap;
+  }
+`;
+
+export const ButtonTxt = styled.p`
   font-size: 10px;
-}
+`;
 
-.closed_aside_button:hover {
-  background-color: #f2f2f2;
-  border-radius: 12px;
-}
-
-.button_img {
+export const ButtonImg = styled.image`
   width: 24px;
   height: 24px;
   background-size: contain;
   background-position: start;
   background-repeat: no-repeat;
-}
+`;

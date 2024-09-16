@@ -1,0 +1,8 @@
+import dark from "./dark";
+import light from "./light";
+
+export const theme = {
+  dark,
+  light,
+  fontFamily: "Arial, sans-serif",
+};
