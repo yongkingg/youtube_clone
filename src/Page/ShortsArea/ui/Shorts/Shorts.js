@@ -4,7 +4,7 @@ import useShortData from "./shortsButton/lib/useShortData";
 import ShortsButton from "./shortsButton/shortsButton";
 import HoverButton from "Shared/components/HoverButton";
 import Comment from "Widget/Comment/ui/Comment";
-import avatar from "Shared/asset/avatar.svg";
+import avatar from "Shared/asset/avatar_black.svg";
 import CommentInput from "Widget/CommentInput";
 
 const Shorts = React.memo(() => {

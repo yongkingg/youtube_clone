@@ -25,6 +25,7 @@ export const ClosedAsideButtons = styled.a`
   &:hover {
     background-color: #f2f2f2;
     border-radius: 0cap;
+    border-radius: 12px;
   }
 `;
 

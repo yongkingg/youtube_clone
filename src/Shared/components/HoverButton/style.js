@@ -1,16 +1,16 @@
 import styled from "styled-components";
-
-// Button을 styled.button으로 정의
 const Button = styled.button`
   cursor: pointer;
   flex-shrink: 0;
   width: 40px;
   height: 40px;
-  background-size: 32px;
-  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(${(props) => props.$imageUrl});
+  background-size: 32px; /* 이미지 크기 조정 */
   background-repeat: no-repeat;
-  background-image: ${(props) => `url(${props.$imageUrl})`};
-
+  background-position: center;
   &:hover {
     background-color: lightgrey;
     border-radius: 50%;

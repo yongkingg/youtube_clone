@@ -1,2 +1,2 @@
-import VideoDetail from "./ui/VideoDetail/ui/VideoDetail";
+import VideoDetail from "./ui/VideoDetail";
 export default VideoDetail;

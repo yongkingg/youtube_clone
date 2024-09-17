@@ -1,5 +1,5 @@
 import HoverButton from "Shared/components/HoverButton";
-import avatar from "Shared/asset/avatar.svg";
+import avatar from "Shared/asset/avatar_black.svg";
 import style from "./CommentInput.module.css";
 
 const CommentInput = () => {

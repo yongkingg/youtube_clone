@@ -2,12 +2,13 @@ import styled, { css } from "styled-components";
 
 export default {
   Container: styled.div`
+    background-color: ${(props) => props.theme.page};
+    color: ${(props) => props.theme.font};
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 10px;
     height: 59px;
-
     ${(props) => {
       switch (props.$type) {
         case "header":
@@ -15,7 +16,6 @@ export default {
             padding: 8px 16px 0;
             width: 100%;
             justify-content: space-between;
-            background-color: white;
             position: fixed;
             top: 0;
             left: 0;

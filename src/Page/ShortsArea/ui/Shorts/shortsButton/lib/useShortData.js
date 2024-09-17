@@ -1,5 +1,5 @@
 import React from "react";
-import avatar from "Shared/asset/avatar.svg";
+import avatar from "Shared/asset/avatar_black.svg";
 const useShortData = () => {
   const [shortsData, setShortsData] = React.useState([]);
 

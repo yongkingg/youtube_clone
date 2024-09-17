@@ -1,25 +1,39 @@
 import HoverButton from "Shared/components/HoverButton";
-import video from "../asset/video.svg";
-import alert from "../asset/alert.svg";
-import avatar from "Shared/asset/avatar.svg";
-import ContainerStyle from "./ContainerStyle";
-import { SearchField, SearchInput } from "./SeacrhStyle";
-import ButtonStyle from "./ButtonStyle";
+import ContainerStyle from "./style/ContainerStyle";
+import { SearchField, SearchInput } from "./style/SeacrhStyle";
+import ButtonStyle from "./style/ButtonStyle";
 import { useLogoClick } from "../../model/useLogoClick";
 
-const Header = (props) => {
-  const { menuClick } = props;
-  const returnHome = useLogoClick();
+import video_black from "../asset/video_black.svg";
+import video_white from "../asset/video_white.svg";
 
+import alert_black from "../asset/alert_black.svg";
+import alert_white from "../asset/alert_white.svg";
+
+import avatar_black from "Shared/asset/avatar_black.svg";
+import avatar_white from "Shared/asset/avatar_white.svg";
+
+import menu_white from "../asset/menu_white.svg";
+import menu_black from "../asset/menu_black.svg";
+
+import logo_black from "../asset/youtube.svg";
+import logo_white from "../asset/youtube_white.svg";
+
+const Header = (props) => {
+  const { mode, menuClick, switchTheme } = props;
+  const returnHome = useLogoClick();
   const headerButtons = [
     {
-      image: video,
+      black: video_black,
+      white: video_white,
     },
     {
-      image: alert,
+      black: alert_black,
+      white: alert_white,
     },
     {
-      image: avatar,
+      black: avatar_black,
+      white: avatar_white,
     },
   ];
 
@@ -28,25 +42,31 @@ const Header = (props) => {
       <ContainerStyle.Container $type="side_box">
         <ButtonStyle.Button
           $type="menu"
+          $image={mode.page == "black" ? menu_white : menu_black}
           onClick={menuClick}
         ></ButtonStyle.Button>
         <ButtonStyle.Button
           $type="logo"
+          $image={mode.page == "black" ? logo_white : logo_black}
           onClick={returnHome}
         ></ButtonStyle.Button>
       </ContainerStyle.Container>
-
       <ContainerStyle.Container $type="search_box">
         <SearchField>
           <SearchInput placeholder="검색"></SearchInput>
           <ButtonStyle.Button $type="search"></ButtonStyle.Button>
         </SearchField>
-        <ButtonStyle.Button $type="voice"></ButtonStyle.Button>
+        <ButtonStyle.Button
+          $type="voice"
+          onClick={switchTheme}
+        ></ButtonStyle.Button>
       </ContainerStyle.Container>
-
       <ContainerStyle.Container $type="tool_box">
         {headerButtons.map((element, index) => (
-          <HoverButton key={index} imageUrl={element.image} />
+          <HoverButton
+            key={index}
+            imageUrl={mode.font == "black" ? element.black : element.white}
+          />
         ))}
       </ContainerStyle.Container>
     </ContainerStyle.Container>

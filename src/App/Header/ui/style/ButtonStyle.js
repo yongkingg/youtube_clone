@@ -1,8 +1,11 @@
 import styled, { css } from "styled-components";
-import menu from "../asset/menu.svg";
-import logo from "../asset/youtube.svg";
-import search from "../asset/search.svg";
-import voice from "../asset/voice.svg";
+import menu_black from "../../asset/menu_black.svg";
+import menu_white from "../../asset/menu_white.svg";
+import logo from "../../asset/youtube.svg";
+import logo_white from "../../asset/youtube_white.svg";
+import search from "../../asset/search_black.svg";
+import voice from "../../asset/voice_black.svg";
+
 export default {
   Button: styled.button`
     background-position: center;
@@ -15,7 +18,7 @@ export default {
           return css`
             min-width: 40px;
             padding: 8px;
-            background-image: url(${menu});
+            background-image: url(${props.$image});
             background-size: 24px;
             &:hover {
               width: 40px;
@@ -27,7 +30,7 @@ export default {
         case "logo":
           return css`
             min-width: 110px;
-            background-image: url(${logo});
+            background-image: url(${props.$image});
             background-size: contain;
           `;
         case "search":
