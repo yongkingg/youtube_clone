@@ -10,6 +10,7 @@ export const ClosedAside = styled.div`
   position: sticky;
   top: 59px;
   left: 0;
+  background-color: ${(props) => props.mode};
 `;
 
 export const ClosedAsideButtons = styled.a`
@@ -30,6 +31,7 @@ export const ClosedAsideButtons = styled.a`
 `;
 
 export const ButtonTxt = styled.p`
+  color: ${(props) => props.$color};
   font-size: 10px;
 `;
 

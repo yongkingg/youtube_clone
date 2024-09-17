@@ -1,4 +1,5 @@
 export default {
-  font: "black",
-  page: "white",
+  fontColor: "black",
+  iconColor: "black",
+  bgColor: "white",
 };

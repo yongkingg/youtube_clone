@@ -8,7 +8,6 @@ export const useSwitchTheme = () => {
     setMode((prevMode) =>
       prevMode === theme.light ? theme.dark : theme.light
     );
-    console.log(mode);
   };
   return [mode, switchTheme];
 };

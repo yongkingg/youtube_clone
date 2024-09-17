@@ -19,7 +19,7 @@ const App = () => {
         <ResetStyle />
         <Header mode={mode} menuClick={toggleMenu} switchTheme={switchTheme} />
         <Container>
-          <Aside isMenuClicked={isMenuClicked} />
+          <Aside mode={mode} isMenuClicked={isMenuClicked} />
           <Page />
         </Container>
       </Router>

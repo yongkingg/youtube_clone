@@ -2,8 +2,8 @@ import styled, { css } from "styled-components";
 
 export default {
   Container: styled.div`
-    background-color: ${(props) => props.theme.page};
-    color: ${(props) => props.theme.font};
+    background-color: ${(props) => props.theme.bgColor};
+    color: ${(props) => props.theme.fontColor};
     display: flex;
     flex-direction: row;
     align-items: center;

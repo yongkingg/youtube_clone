@@ -42,30 +42,34 @@ const Header = (props) => {
       <ContainerStyle.Container $type="side_box">
         <ButtonStyle.Button
           $type="menu"
-          $image={mode.page == "black" ? menu_white : menu_black}
+          $image={mode.bgColor == "black" ? menu_white : menu_black}
           onClick={menuClick}
         ></ButtonStyle.Button>
+
         <ButtonStyle.Button
           $type="logo"
-          $image={mode.page == "black" ? logo_white : logo_black}
+          $image={mode.bgColor == "black" ? logo_white : logo_black}
           onClick={returnHome}
         ></ButtonStyle.Button>
       </ContainerStyle.Container>
+
       <ContainerStyle.Container $type="search_box">
         <SearchField>
           <SearchInput placeholder="검색"></SearchInput>
           <ButtonStyle.Button $type="search"></ButtonStyle.Button>
         </SearchField>
+
         <ButtonStyle.Button
           $type="voice"
           onClick={switchTheme}
         ></ButtonStyle.Button>
       </ContainerStyle.Container>
+
       <ContainerStyle.Container $type="tool_box">
         {headerButtons.map((element, index) => (
           <HoverButton
             key={index}
-            imageUrl={mode.font == "black" ? element.black : element.white}
+            imageUrl={mode.bgColor == "white" ? element.black : element.white}
           />
         ))}
       </ContainerStyle.Container>
