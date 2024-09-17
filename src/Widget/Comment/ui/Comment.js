@@ -1,26 +1,55 @@
-import style from "../style/comment.module.css";
+import avatar from "Shared/asset/avatar_white.svg";
+import avatar_black from "Shared/asset/avatar_black.svg";
+
+import like from "../asset/like.svg";
+import like_dark from "../asset/like_dark.svg";
+
+import dislike from "../asset/dislike.svg";
+import dislike_dark from "../asset/dislike_dark.svg";
+
+import {
+  CommentBox,
+  CommentContent,
+  CommentWriter,
+  CommentText,
+  CommentLikeContainer,
+  CommentAvatar,
+  LikeCount,
+  FeedBackBtn,
+  ReComment,
+} from "./style";
+
 const Comment = (props) => {
-  const { element } = props;
+  const { element, mode, darkColor } = props;
 
   return (
-    <div className={style.comment}>
-      <button
-        className={style.comment_avatar}
-        style={{ backgroundImage: `url(${element.writerIcon})` }}
-      ></button>
-      <div className={style.comment_content}>
-        <p className={style.comment_writer}>{element.writer}</p>
-        <p className={style.comment_text}>{element.content}</p>
-        <div className={style.comment_like_container}>
+    <CommentBox>
+      <CommentAvatar
+        style={{
+          backgroundImage: `url(${
+            mode.bgColor == darkColor ? avatar : avatar_black
+          })`,
+        }}
+      ></CommentAvatar>
+      <CommentContent>
+        <CommentWriter $fontColor={mode.fontColor}>
+          {element.writer}
+        </CommentWriter>
+        <CommentText $fontColor={mode.fontColor}>{element.content}</CommentText>
+        <CommentLikeContainer>
           <>
-            <button className={style.like}></button>
-            <p>{element.like}</p>
+            <FeedBackBtn
+              $btnImg={mode.bgColor == darkColor ? like_dark : like}
+            ></FeedBackBtn>
+            <LikeCount $fontColor={mode.fontColor}>{element.like}</LikeCount>
           </>
-          <button className={style.dislike}></button>
-          <button className={style.recomment}>답글</button>
-        </div>
-      </div>
-    </div>
+          <FeedBackBtn
+            $btnImg={mode.bgColor == darkColor ? dislike_dark : dislike}
+          ></FeedBackBtn>
+          <ReComment $fontColor={mode.fontColor}>답글</ReComment>
+        </CommentLikeContainer>
+      </CommentContent>
+    </CommentBox>
   );
 };
 

@@ -1,4 +1,3 @@
-import sub_style from "./videoPreview.module.css";
 import useRelatedVideoData from "Page/VideoDetail/RelatedVideo/api/useRelatedVideoData";
 import RelatedVideo from "../RelatedVideo/ui/RelatedVideo";
 import useCommentData from "../api/useCommentData";
@@ -20,6 +19,7 @@ import {
   CommentCount,
   CommentContainer,
   CommentArea,
+  VideoPreview,
 } from "./style";
 
 const VideoDetail = (props) => {
@@ -64,7 +64,12 @@ const VideoDetail = (props) => {
                 {commentList.length > 0 ? (
                   commentList.map((element, index) => {
                     return (
-                      <Comment key={index} element={element} mode={mode} />
+                      <Comment
+                        key={index}
+                        element={element}
+                        mode={mode}
+                        darkColor={darkColor}
+                      />
                     );
                   })
                 ) : (
@@ -75,11 +80,11 @@ const VideoDetail = (props) => {
           </CommentContainer>
         </VideoDetailContainer>
       </>
-      <section className={sub_style.video_preview} onClick={handleVideoClick}>
+      <VideoPreview $bgColor={mode.bgColor} onClick={handleVideoClick}>
         {relateVideoData?.map((element, index) => (
-          <RelatedVideo key={index} element={element} />
+          <RelatedVideo key={index} element={element} mode={mode} />
         ))}
-      </section>
+      </VideoPreview>
     </RowSet>
   );
 };

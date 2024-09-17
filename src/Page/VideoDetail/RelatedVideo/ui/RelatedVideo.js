@@ -1,20 +1,16 @@
-import style from "./relatedVideo.module.css";
+import { RelatedVideoContainer, ColumnSet } from "./style";
 
 const RelatedVideo = (props) => {
-  const { element } = props;
+  const { element, mode } = props;
   return (
-    <div
-      className={style.related_video}
-      data-video-id={element.index}
-      data-role="video"
-    >
-      <img className={style.related_video_thum} src={element.thumnail}></img>
-      <div className={`${style.column_set} ${style.gap_4px}`}>
-        <h1 className={style.related_video_title}>{element.title}</h1>
-        <p className={style.related_video_info}>{element.name}</p>
-        <p className={style.related_video_info}>{element.info}</p>
-      </div>
-    </div>
+    <RelatedVideoContainer data-video-id={element.index} data-role="video">
+      <img src={element.thumnail}></img>
+      <ColumnSet $fontColor={mode.fontColor}>
+        <h1>{element.title}</h1>
+        <p>{element.name}</p>
+        <p>{element.info}</p>
+      </ColumnSet>
+    </RelatedVideoContainer>
   );
 };
 

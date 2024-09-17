@@ -72,3 +72,11 @@ export const CommentCount = styled.h1`
 export const CommentArea = styled.main`
   margin-top: 32px;
 `;
+
+export const VideoPreview = styled.section`
+  background-color: ${(props) => props.$bgColor};
+  min-width: 426px;
+  padding-top: 12px;
+  display: flex;
+  flex-direction: column;
+`;
