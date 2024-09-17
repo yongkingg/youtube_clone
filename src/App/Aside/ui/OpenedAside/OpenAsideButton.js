@@ -1,15 +1,14 @@
-import style from "./openAside.module.css";
+import { OpenedAsideButtons, ButtonTxt, ButtonImg } from "./style";
 
 const OpenAsideButton = (props) => {
-  const { buttons, index } = props;
+  const { mode, buttons, index } = props;
   return (
-    <a className={style.opened_aside_button} data-button-id={index}>
-      <div
-        className={style.button_img}
+    <OpenedAsideButtons data-button-id={index}>
+      <ButtonImg
         style={{ backgroundImage: `url(${buttons.image})` }}
-      ></div>
-      <p>{buttons.name}</p>
-    </a>
+      ></ButtonImg>
+      <ButtonTxt $color={mode.fontColor}>{buttons.name}</ButtonTxt>
+    </OpenedAsideButtons>
   );
 };
 

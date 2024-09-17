@@ -1,19 +1,24 @@
 import OpenAsideButton from "./OpenAsideButton";
-import style from "./openAside.module.css";
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import useAsideClickEvent from "../../model/useAsideClickEvent";
-const OpenAside = (props) => {
-  const { buttons } = props;
+import { OpenedAside } from "./style";
 
+const OpenAside = (props) => {
+  const { buttons, mode } = props;
+  console.log(mode);
   const clickEvent = useAsideClickEvent();
 
   return (
-    <div className={style.opened_aside} onClick={clickEvent}>
+    <OpenedAside mode={mode.bgColor} onClick={clickEvent}>
       {buttons.map((element, index) => (
-        <OpenAsideButton key={index} index={index} buttons={element} />
+        <OpenAsideButton
+          key={index}
+          index={index}
+          buttons={element}
+          mode={mode}
+        />
       ))}
-    </div>
+    </OpenedAside>
   );
 };
 
