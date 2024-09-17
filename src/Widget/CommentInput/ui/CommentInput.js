@@ -1,13 +1,19 @@
 import HoverButton from "Shared/components/HoverButton";
-import avatar from "Shared/asset/avatar_black.svg";
-import style from "./CommentInput.module.css";
 
-const CommentInput = () => {
+import avatar_black from "Shared/asset/avatar_black.svg";
+import avatar_white from "Shared/asset/avatar_white.svg";
+
+import { CommentInputContainer } from "./style";
+const CommentInput = (props) => {
+  const { mode, darkColor } = props;
+  console.log(mode);
   return (
-    <div className={style.comment_input_container}>
-      <HoverButton imageUrl={avatar} />
+    <CommentInputContainer $bgColor={mode.bgColor}>
+      <HoverButton
+        imageUrl={mode.bgColor == darkColor ? avatar_white : avatar_black}
+      />
       <input placeholder="댓글 추가..." />
-    </div>
+    </CommentInputContainer>
   );
 };
 

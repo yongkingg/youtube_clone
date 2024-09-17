@@ -1,4 +1,3 @@
-import style from "./videoDetail.module.css";
 import sub_style from "./videoPreview.module.css";
 import useRelatedVideoData from "Page/VideoDetail/RelatedVideo/api/useRelatedVideoData";
 import RelatedVideo from "../RelatedVideo/ui/RelatedVideo";
@@ -9,7 +8,23 @@ import useGetQueryString from "Shared/model/useGetQueryString";
 import useGetVideoByIdx from "Page/VideoDetail/api/useGetVideoByIdx";
 import useVideoClick from "Shared/model/useVideoClick";
 
-const VideoDetail = () => {
+import {
+  VideoDetailContainer,
+  VideoPlaySection,
+  VideoPlayThumnail,
+  VideoDetailInfo,
+  VideoIcon,
+  VideoTitle,
+  VideoInfoText,
+  RowSet,
+  CommentCount,
+  CommentContainer,
+  CommentArea,
+} from "./style";
+
+const VideoDetail = (props) => {
+  const { mode, darkColor } = props;
+
   const videoId = useGetQueryString();
   const video = useGetVideoByIdx(videoId);
   const commentList = useCommentData(5);
@@ -17,53 +32,55 @@ const VideoDetail = () => {
   const [relateVideoData] = useRelatedVideoData();
 
   return (
-    <div className={style.row_set}>
+    <RowSet>
       <>
-        <section className={style.video_detail}>
+        <VideoDetailContainer $bgColor={mode.bgColor}>
           {video && (
-            <div className={style.video_play_section}>
-              <img
-                className={style.video_play_thum}
-                src={video.data.thumnail}
-              ></img>
-              <h1 className={style.video_detail_title}>{video.data.title}</h1>
-              <div className={`${style.row_set} ${style.gap_12px}`}>
-                <img
-                  className={style.video_icon}
-                  src={video.data.channelIcon}
-                ></img>
-                <div className={style.video_detail_info}>
-                  <h3>{video.data.name}</h3>
-                  <h3>{video.data.info}</h3>
-                </div>
-              </div>
-            </div>
+            <VideoPlaySection>
+              <VideoPlayThumnail src={video.data.thumnail}></VideoPlayThumnail>
+              <VideoTitle $fontColor={mode.fontColor}>
+                {video.data.title}
+              </VideoTitle>
+              <RowSet $gap="12px">
+                <VideoIcon src={video.data.channelIcon}></VideoIcon>
+                <VideoDetailInfo>
+                  <VideoInfoText $fontColor={mode.fontColor}>
+                    {video.data.name}
+                  </VideoInfoText>
+                  <VideoInfoText $fontColor={mode.fontColor}>
+                    {video.data.info}
+                  </VideoInfoText>
+                </VideoDetailInfo>
+              </RowSet>
+            </VideoPlaySection>
           )}
-          <section className={style.container}>
+          <CommentContainer>
             <>
-              <h1 className={style.comment_count}>
+              <CommentCount $fontColor={mode.fontColor}>
                 댓글 {commentList.length}개
-              </h1>
-              <CommentInput />
-              <main className={style.comment_area}>
+              </CommentCount>
+              <CommentInput mode={mode} darkColor={darkColor} />
+              <CommentArea>
                 {commentList.length > 0 ? (
                   commentList.map((element, index) => {
-                    return <Comment key={index} element={element} />;
+                    return (
+                      <Comment key={index} element={element} mode={mode} />
+                    );
                   })
                 ) : (
                   <p>로딩</p>
                 )}
-              </main>
+              </CommentArea>
             </>
-          </section>
-        </section>
+          </CommentContainer>
+        </VideoDetailContainer>
       </>
       <section className={sub_style.video_preview} onClick={handleVideoClick}>
         {relateVideoData?.map((element, index) => (
           <RelatedVideo key={index} element={element} />
         ))}
       </section>
-    </div>
+    </RowSet>
   );
 };
 

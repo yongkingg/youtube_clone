@@ -8,8 +8,11 @@ const Page = (props) => {
   const { mode, darkColor } = props;
   return (
     <Routes>
-      <Route path="/" element={<Main mode={mode} darkColor={darkColor} />} />
-      <Route path="/video_detail" element={<VideoDetail />} />
+      <Route path="/" element={<Main mode={mode} />} />
+      <Route
+        path="/video_detail"
+        element={<VideoDetail mode={mode} darkColor={darkColor} />}
+      />
       <Route path="/shorts" element={<ShortsArea />} />
     </Routes>
   );

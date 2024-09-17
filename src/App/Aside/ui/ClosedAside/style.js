@@ -33,6 +33,7 @@ export const ClosedAsideButtons = styled.a`
 export const ButtonTxt = styled.p`
   color: ${(props) => props.$color};
   font-size: 10px;
+  margin-top: 4px;
 `;
 
 export const ButtonImg = styled.image`

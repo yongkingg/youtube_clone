@@ -9,7 +9,7 @@ import {
 } from "./style";
 
 const Video = (props) => {
-  const { element, mode, darkColor } = props;
+  const { element, mode } = props;
 
   return (
     <VideoBox
