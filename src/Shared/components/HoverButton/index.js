@@ -1,11 +1,7 @@
-import style from "./style/hoverButton.module.css";
+import Button from "./style";
+
 const HoverButton = ({ imageUrl }) => {
-  return (
-    <button
-      className={style.tools_btn}
-      style={{ backgroundImage: `url(${imageUrl})` }}
-    ></button>
-  );
+  return <Button $imageUrl={imageUrl}></Button>;
 };
 
 export default HoverButton;

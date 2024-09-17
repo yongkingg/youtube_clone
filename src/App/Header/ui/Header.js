@@ -1,17 +1,15 @@
 import HoverButton from "Shared/components/HoverButton";
-import style from "../style/header.module.css";
 import video from "../asset/video.svg";
 import alert from "../asset/alert.svg";
 import avatar from "Shared/asset/avatar.svg";
-import { useNavigate } from "react-router-dom";
+import ContainerStyle from "./ContainerStyle";
+import { SearchField, SearchInput } from "./SeacrhStyle";
+import ButtonStyle from "./ButtonStyle";
+import { useLogoClick } from "../../model/useLogoClick";
 
 const Header = (props) => {
   const { menuClick } = props;
-  const navigate = useNavigate();
-
-  const returnHome = () => {
-    navigate("/");
-  };
+  const returnHome = useLogoClick();
 
   const headerButtons = [
     {
@@ -26,26 +24,32 @@ const Header = (props) => {
   ];
 
   return (
-    <header className={style.header}>
-      <div className={style.sidebar_box}>
-        <button className={style.menu} onClick={menuClick}></button>
-        <button className={style.logo} onClick={returnHome}></button>
-      </div>
+    <ContainerStyle.Container $type="header">
+      <ContainerStyle.Container $type="side_box">
+        <ButtonStyle.Button
+          $type="menu"
+          onClick={menuClick}
+        ></ButtonStyle.Button>
+        <ButtonStyle.Button
+          $type="logo"
+          onClick={returnHome}
+        ></ButtonStyle.Button>
+      </ContainerStyle.Container>
 
-      <div className={style.search_box}>
-        <div className={style.search_field}>
-          <input className={style.search_input} placeholder="검색"></input>
-          <button className={style.search_btn}></button>
-        </div>
-        <button className={style.search_voice}></button>
-      </div>
+      <ContainerStyle.Container $type="search_box">
+        <SearchField>
+          <SearchInput placeholder="검색"></SearchInput>
+          <ButtonStyle.Button $type="search"></ButtonStyle.Button>
+        </SearchField>
+        <ButtonStyle.Button $type="voice"></ButtonStyle.Button>
+      </ContainerStyle.Container>
 
-      <div className={style.tools_box}>
+      <ContainerStyle.Container $type="tool_box">
         {headerButtons.map((element, index) => (
           <HoverButton key={index} imageUrl={element.image} />
         ))}
-      </div>
-    </header>
+      </ContainerStyle.Container>
+    </ContainerStyle.Container>
   );
 };
 
