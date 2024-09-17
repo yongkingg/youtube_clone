@@ -5,14 +5,11 @@ import VideoDetail from "./VideoDetail";
 import ShortsArea from "./ShortsArea";
 
 const Page = (props) => {
-  const { video, setVideo } = props;
+  const { mode, darkColor } = props;
   return (
     <Routes>
-      <Route path="/" element={<Main setVideo={setVideo} />} />
-      <Route
-        path="/video_detail"
-        element={<VideoDetail video={video} setVideo={setVideo} />}
-      />
+      <Route path="/" element={<Main mode={mode} darkColor={darkColor} />} />
+      <Route path="/video_detail" element={<VideoDetail />} />
       <Route path="/shorts" element={<ShortsArea />} />
     </Routes>
   );

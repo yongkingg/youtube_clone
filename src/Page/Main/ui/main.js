@@ -1,18 +1,24 @@
-import style from "./main.module.css";
 import useVideoData from "Shared/api/useVideoData";
 import Video from "../video/video";
 import useVideoClick from "Shared/model/useVideoClick";
+import { VideoContainer } from "./style";
 
-const Main = () => {
+const Main = (props) => {
+  const { mode, darkColor } = props;
   const [videoData] = useVideoData();
-  const handleVideoClick = useVideoClick();
 
+  const handleVideoClick = useVideoClick();
   return (
-    <section className={style.video_area} onClick={handleVideoClick}>
+    <VideoContainer $bgColor={mode.bgColor} onClick={handleVideoClick}>
       {videoData?.map((element, index) => (
-        <Video key={index} element={element} />
+        <Video
+          key={index}
+          element={element}
+          mode={mode}
+          darkColor={darkColor}
+        />
       ))}
-    </section>
+    </VideoContainer>
   );
 };
 

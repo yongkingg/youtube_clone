@@ -1,23 +1,34 @@
-import style from "./video.module.css";
+import {
+  VideoBox,
+  Thumnail,
+  VideoInfoBox,
+  VideoTitle,
+  VideoInfo,
+  VideoIcon,
+  TmpBox,
+} from "./style";
 
 const Video = (props) => {
-  const { element } = props;
+  const { element, mode, darkColor } = props;
+
   return (
-    <div
-      className={style.video}
+    <VideoBox
+      $bgColor={mode.bgColor}
       data-video-id={element.index}
       data-role="video"
     >
-      <img className={style.video_thumnail} src={element.data.thumnail}></img>
-      <div className={style.tmp_box}>
-        <img className={style.video_icon} src={element.data.channelIcon}></img>
-        <div className={style.video_info_box}>
-          <p className={style.video_title}>{element.data.title}</p>
-          <p className={style.video_info}>{element.data.name}</p>
-          <p className={style.video_info}>{element.data.info}</p>
-        </div>
-      </div>
-    </div>
+      <Thumnail src={element.data.thumnail}></Thumnail>
+      <TmpBox>
+        <VideoIcon src={element.data.channelIcon}></VideoIcon>
+        <VideoInfoBox>
+          <VideoTitle $fontColor={mode.fontColor}>
+            {element.data.title}
+          </VideoTitle>
+          <VideoInfo $fontColor={mode.fontColor}>{element.data.name}</VideoInfo>
+          <VideoInfo $fontColor={mode.fontColor}>{element.data.info}</VideoInfo>
+        </VideoInfoBox>
+      </TmpBox>
+    </VideoBox>
   );
 };
 

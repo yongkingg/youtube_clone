@@ -12,7 +12,6 @@ import { useSwitchTheme } from "./model/useSwitchTheme";
 const App = () => {
   const [isMenuClicked, toggleMenu] = useMenuClick();
   const [mode, switchTheme] = useSwitchTheme();
-
   const darkColor = "var(--dark-color)";
 
   return (
@@ -32,7 +31,7 @@ const App = () => {
             isMenuClicked={isMenuClicked}
             darkColor={darkColor}
           />
-          <Page />
+          <Page mode={mode} darkColor={darkColor} />
         </Container>
       </Router>
     </ThemeProvider>
