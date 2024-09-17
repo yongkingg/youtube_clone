@@ -2,7 +2,6 @@ import { ClosedAsideButtons, ButtonTxt, ButtonImg } from "./style";
 
 const CloseAsideButton = (props) => {
   const { mode, buttons, index } = props;
-  console.log(mode.fontColor);
   return (
     <ClosedAsideButtons data-button-id={index}>
       <ButtonImg

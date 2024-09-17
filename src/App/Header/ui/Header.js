@@ -20,7 +20,7 @@ import logo_black from "../asset/youtube.svg";
 import logo_white from "../asset/youtube_white.svg";
 
 const Header = (props) => {
-  const { mode, menuClick, switchTheme } = props;
+  const { mode, menuClick, switchTheme, darkColor } = props;
   const returnHome = useLogoClick();
   const headerButtons = [
     {
@@ -42,13 +42,13 @@ const Header = (props) => {
       <ContainerStyle.Container $type="side_box">
         <ButtonStyle.Button
           $type="menu"
-          $image={mode.bgColor == "black" ? menu_white : menu_black}
+          $image={mode.bgColor == darkColor ? menu_white : menu_black}
           onClick={menuClick}
         ></ButtonStyle.Button>
 
         <ButtonStyle.Button
           $type="logo"
-          $image={mode.bgColor == "black" ? logo_white : logo_black}
+          $image={mode.bgColor == darkColor ? logo_white : logo_black}
           onClick={returnHome}
         ></ButtonStyle.Button>
       </ContainerStyle.Container>
@@ -69,7 +69,7 @@ const Header = (props) => {
         {headerButtons.map((element, index) => (
           <HoverButton
             key={index}
-            imageUrl={mode.bgColor == "white" ? element.black : element.white}
+            imageUrl={mode.bgColor == darkColor ? element.white : element.black}
           />
         ))}
       </ContainerStyle.Container>

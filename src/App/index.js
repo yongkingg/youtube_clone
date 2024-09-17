@@ -5,21 +5,33 @@ import React from "react";
 import Container from "./style/index";
 import { BrowserRouter as Router } from "react-router-dom";
 import Page from "../Page";
-import { theme } from "Shared/style/themes";
 import { ThemeProvider } from "styled-components";
-import ResetStyle from "../Shared/style/reset.js";
+import { ResetStyle } from "../Shared/style/reset.js";
+import { GlobalStyle } from "../Shared/style/globalStyle";
 import { useSwitchTheme } from "./model/useSwitchTheme";
 const App = () => {
   const [isMenuClicked, toggleMenu] = useMenuClick();
   const [mode, switchTheme] = useSwitchTheme();
 
+  const darkColor = "var(--dark-color)";
+
   return (
     <ThemeProvider theme={mode}>
       <Router>
         <ResetStyle />
-        <Header mode={mode} menuClick={toggleMenu} switchTheme={switchTheme} />
+        <GlobalStyle />
+        <Header
+          mode={mode}
+          menuClick={toggleMenu}
+          switchTheme={switchTheme}
+          darkColor={darkColor}
+        />
         <Container>
-          <Aside mode={mode} isMenuClicked={isMenuClicked} />
+          <Aside
+            mode={mode}
+            isMenuClicked={isMenuClicked}
+            darkColor={darkColor}
+          />
           <Page />
         </Container>
       </Router>

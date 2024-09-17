@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-const ResetStyle = createGlobalStyle`
+export const ResetStyle = createGlobalStyle`
   html,
   body,
   div,
@@ -165,5 +165,3 @@ const ResetStyle = createGlobalStyle`
     background: none;
   }
 `;
-
-export default ResetStyle;

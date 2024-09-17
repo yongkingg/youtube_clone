@@ -15,24 +15,24 @@ import me_white from "../asset/me_white.svg";
 import React from "react";
 
 const Aside = React.memo((props) => {
-  const { isMenuClicked, mode } = props;
+  const { isMenuClicked, mode, darkColor } = props;
 
   const asideButtons = [
     {
       name: "홈",
-      image: mode.bgColor == "black" ? me_white : me,
+      image: mode.bgColor == darkColor ? me_white : me,
     },
     {
       name: "Shorts",
-      image: mode.bgColor == "black" ? shorts_white : shorts,
+      image: mode.bgColor == darkColor ? shorts_white : shorts,
     },
     {
       name: "구독",
-      image: mode.bgColor == "black" ? subscribe_white : subscribe,
+      image: mode.bgColor == darkColor ? subscribe_white : subscribe,
     },
     {
       name: "나",
-      image: mode.bgColor == "black" ? me_white : me,
+      image: mode.bgColor == darkColor ? me_white : me,
     },
   ];
 

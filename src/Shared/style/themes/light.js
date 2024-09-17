@@ -1,5 +1,5 @@
 export default {
-  fontColor: "black",
-  iconColor: "black",
-  bgColor: "white",
+  fontColor: "var(--dark-color)",
+  iconColor: "var(--dark-color)",
+  bgColor: "var(--main-color)",
 };
