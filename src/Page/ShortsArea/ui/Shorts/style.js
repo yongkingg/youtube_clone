@@ -175,6 +175,7 @@ export const Container = styled.div`
           height: calc(100% - 121px);
           overflow-y: auto;
         `;
+
       case "shorts_owner_box":
         return css`
           display: flex;
