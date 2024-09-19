@@ -1,51 +1,70 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const VideoBox = styled.div`
-  flex: 1 0 310px;
-  height: 330px;
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-  background-color: ${(props) => props.$bgColor};
-`;
-
-export const Thumnail = styled.img`
-  width: 100%;
-  height: 210px;
-  border-radius: 12px;
-`;
-
-export const VideoInfoBox = styled.div`
-  width: 100%;
-  height: 100px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-`;
-
-export const VideoTitle = styled.p`
-  font-family: var(--main-font);
-  font-size: 16px;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  color: ${(props) => props.$fontColor};
-`;
-
-export const VideoInfo = styled.p`
-  font-family: var(--main-font);
-  color: ${(props) => props.$fontColor};
-  font-size: 14px;
-`;
-
-export const VideoIcon = styled.img`
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-`;
-
-export const TmpBox = styled.div`
-  display: flex;
-  flex-direction: row;
-  padding-top: 10px;
-  gap: 8px;
-`;
+export default {
+  Box: styled.div`
+    cursor: pointer;
+    display: flex;
+    ${(props) => {
+      switch (props.$type) {
+        case "video":
+          return css`
+            flex-direction: column;
+            flex: 1 0 310px;
+            height: 330px;
+            background-color: ${(props) => props.$bgColor};
+          `;
+        case "video_info":
+          return css`
+            flex-direction: column;
+            width: 100%;
+            height: 100px;
+            gap: 4px;
+          `;
+        case "tmp":
+          return css`
+            flex-direction: row;
+            padding-top: 10px;
+            gap: 8px;
+          `;
+      }
+    }}
+  `,
+  Image: styled.img`
+    ${(props) => {
+      switch (props.$type) {
+        case "thumnail":
+          return css`
+            width: 100%;
+            height: 210px;
+            border-radius: 12px;
+            background-size: contain;
+          `;
+        case "icon":
+          return css`
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-image: url(${props.$src});
+          `;
+      }
+    }}
+  `,
+  Text: styled.p`
+    font-family: var(--main-font);
+    color: ${(props) => props.$fontColor};
+    ${(props) => {
+      switch (props.$type) {
+        case "title":
+          return css`
+            font-size: 16px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+          `;
+        case "info":
+          return css`
+            font-size: 14px;
+          `;
+      }
+    }}
+  `,
+};
