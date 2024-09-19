@@ -7,20 +7,7 @@ import useGetQueryString from "Shared/model/useGetQueryString";
 import useGetVideoByIdx from "Page/VideoDetail/api/useGetVideoByIdx";
 import useVideoClick from "Shared/model/useVideoClick";
 
-import {
-  VideoDetailContainer,
-  VideoPlaySection,
-  VideoPlayThumnail,
-  VideoDetailInfo,
-  VideoIcon,
-  VideoTitle,
-  VideoInfoText,
-  RowSet,
-  CommentCount,
-  CommentContainer,
-  CommentArea,
-  VideoPreview,
-} from "./style";
+import Style from "./style";
 
 const VideoDetail = (props) => {
   const { mode, darkColor } = props;
@@ -32,35 +19,41 @@ const VideoDetail = (props) => {
   const [relateVideoData] = useRelatedVideoData();
 
   return (
-    <RowSet>
+    <Style.Container $type="row_set">
       <>
-        <VideoDetailContainer $bgColor={mode.bgColor}>
+        <Style.Container $type="video_detail" $bgColor={mode.bgColor}>
           {video && (
-            <VideoPlaySection>
-              <VideoPlayThumnail src={video.data.thumnail}></VideoPlayThumnail>
-              <VideoTitle $fontColor={mode.fontColor}>
+            <Style.Section $type="video" $bgColor={mode.bgColor}>
+              <Style.Image
+                $type="thumnail"
+                src={video.data.thumnail}
+              ></Style.Image>
+              <Style.Text $type="title" $fontColor={mode.fontColor}>
                 {video.data.title}
-              </VideoTitle>
-              <RowSet $gap="12px">
-                <VideoIcon src={video.data.channelIcon}></VideoIcon>
-                <VideoDetailInfo>
-                  <VideoInfoText $fontColor={mode.fontColor}>
+              </Style.Text>
+              <Style.Container $type="row_set" $gap="12px">
+                <Style.Image
+                  $type="icon"
+                  src={video.data.channelIcon}
+                ></Style.Image>
+                <Style.Container $type="video_detail">
+                  <Style.Text $type="info" $fontColor={mode.fontColor}>
                     {video.data.name}
-                  </VideoInfoText>
-                  <VideoInfoText $fontColor={mode.fontColor}>
+                  </Style.Text>
+                  <Style.Text $type="info" $fontColor={mode.fontColor}>
                     {video.data.info}
-                  </VideoInfoText>
-                </VideoDetailInfo>
-              </RowSet>
-            </VideoPlaySection>
+                  </Style.Text>
+                </Style.Container>
+              </Style.Container>
+            </Style.Section>
           )}
-          <CommentContainer>
+          <Style.Container $type="comment" $bgColor={mode.bgColor}>
             <>
-              <CommentCount $fontColor={mode.fontColor}>
+              <Style.Text $type="comment_count" $fontColor={mode.fontColor}>
                 댓글 {commentList.length}개
-              </CommentCount>
+              </Style.Text>
               <CommentInput mode={mode} darkColor={darkColor} />
-              <CommentArea>
+              <Style.Container $type="comment" $bgColor={mode.bgColor}>
                 {commentList.length > 0 ? (
                   commentList.map((element, index) => {
                     return (
@@ -75,17 +68,21 @@ const VideoDetail = (props) => {
                 ) : (
                   <p>로딩</p>
                 )}
-              </CommentArea>
+              </Style.Container>
             </>
-          </CommentContainer>
-        </VideoDetailContainer>
+          </Style.Container>
+        </Style.Container>
       </>
-      <VideoPreview $bgColor={mode.bgColor} onClick={handleVideoClick}>
+      <Style.Section
+        $type="preview"
+        $bgColor={mode.bgColor}
+        onClick={handleVideoClick}
+      >
         {relateVideoData?.map((element, index) => (
           <RelatedVideo key={index} element={element} mode={mode} />
         ))}
-      </VideoPreview>
-    </RowSet>
+      </Style.Section>
+    </Style.Container>
   );
 };
 
