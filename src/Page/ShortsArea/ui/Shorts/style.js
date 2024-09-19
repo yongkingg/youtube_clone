@@ -1,41 +1,222 @@
-import styled, { css } from "styled-components";
-export const ShortsContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  min-width: 450px;
-  height: calc(100vh - 91px);
-  border: none;
-  aspect-ratio: 9/16;
-  position: relative;
-`;
+import styled, { keyframes, css } from "styled-components";
+import shorts_test_img from "../Shorts/asset/shorts_test_img.jpg";
 
-export const CommentToolContainer = styled.div`
-  background-color: ${(props) => props.$bgColor};
-  border-radius: 24px;
-  padding: 4px 16px;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
+const animation = {
+  comment: {
+    left: keyframes`
+    from {
+      transform: translateX(50%);
+    }
+    to {
+      transform: translateX(0);
+    }
+    `,
+    right: keyframes`
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(50%);
+    }
+    `,
+  },
+  shorts: {
+    left: keyframes`
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }`,
 
-  h1 {
-    color: ${(props) => props.$fontColor};
-    font-family: var(--main-font);
-    font-size: 20px;
-    font-weight: 900;
-  }
+    right: keyframes`
+    from {
+      transform: translateX(-50%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  `,
+  },
+};
 
-  h3 {
-    color: ${(props) => props.$fontColor};
-    font-family: var(--main-font);
-    font-size: 16px;
-    margin-left: 16px;
-  }
+export const Container = styled.div`
+  ${(props) => {
+    switch (props.$type) {
+      case "shorts":
+        return css`
+          display: flex;
+          flex-direction: row;
+          min-width: 450px;
+          position: absolute;
+          height: calc(100vh - 91px);
+          border: none;
+          aspect-ratio: 9/16;
+          position: relative;
+        `;
+
+      case "button":
+        return css`
+          margin: 16px;
+          display: flex;
+          position: absolute;
+          flex-direction: row;
+          gap: 16px;
+
+          button {
+            width: 48px;
+            height: 48px;
+            border: 2px solid black;
+            background-color: black;
+            border-radius: 50%;
+          }
+        `;
+
+      case "info":
+        return css`
+          position: absolute;
+          width: calc(100% - 32px);
+          bottom: 42px;
+          left: 16px;
+
+          p {
+            padding: 4px 0;
+            margin-top: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            color: white;
+          }
+        `;
+
+      case "interaction":
+        return css`
+          position: absolute;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          align-self: end;
+          gap: 16px;
+          margin-left: 8px;
+          ${(props) => {
+            switch (props?.$animation) {
+              case true:
+                return css`
+                  right: -56px;
+                  bottom: 0;
+                `;
+              case false:
+                return css`
+                  bottom: 0;
+                  right: 8px;
+                `;
+            }
+          }}
+
+          p {
+            font-size: 14px;
+            margin-top: 4px;
+            font-family: var(--main-font);
+            text-align: center;
+          }
+        `;
+
+      case "comment":
+        return css`
+          position: absolute;
+          top: 0;
+          left: 0;
+          max-width: 450px;
+          min-width: 450px;
+          height: 100%;
+          border-radius: 24px;
+          box-shadow: 1px 1px 8px lightgrey;
+          ${(props) => {
+            switch (props?.$animation) {
+              case true:
+                return css`
+                  animation: ${animation.comment.right} 0.5s ease forwards;
+                `;
+              case false:
+                return css`
+                  animation: ${animation.comment.left} 0.5s ease forwards;
+                `;
+            }
+          }}
+        `;
+
+      case "comment_tool":
+        return css`
+          background-color: ${(props) => props.$bgColor};
+          border-radius: 24px;
+          padding: 4px 16px;
+          display: flex;
+          flex-direction: row;
+          align-items: flex-end;
+
+          h1 {
+            color: ${(props) => props.$fontColor};
+            font-family: var(--main-font);
+            font-size: 20px;
+            font-weight: 900;
+          }
+
+          h3 {
+            color: ${(props) => props.$fontColor};
+            font-family: var(--main-font);
+            font-size: 16px;
+            margin-left: 16px;
+          }
+        `;
+
+      case "comment_list":
+        return css`
+          background-color: ${(props) => props.$bgColor};
+          padding: 4px 16px;
+          height: calc(100% - 121px);
+          overflow-y: auto;
+        `;
+      case "shorts_owner_box":
+        return css`
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 4px;
+
+          img {
+            width: 36px;
+            height: 36px;
+            border: none;
+            border-radius: 50%;
+            background-image: url("https://yt3.ggpht.com/P5HXQNMuTDRWwudWf7SyRX47GmPQvgo3hfpEniFCAA6vhSFBjU8oEVqHStEErz2PjJXMhuK3nw=s88-c-k-c0x00ffffff-no-rj");
+            background-size: contain;
+          }
+
+          h1 {
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+          }
+
+          button {
+            width: 48px;
+            height: 32px;
+            background-color: black;
+            border-radius: 16px;
+            color: white;
+            font-family: var(--main-font);
+            font-size: 12px;
+          }
+        `;
+    }
+  }}
 `;
 
 export const ToolBtn = styled.button`
-  width: 40px;
-  height: 40px;
-  background-size: 24px;
+  width: ${(props) => props.$width};
+  height: ${(props) => props.$height};
+  background-color: ${(props) => props.$bgColor};
+  border-radius: 50%;
+  background-size: 24px !important;
   background-position: center;
   background-repeat: no-repeat;
   ${(props) => {
@@ -45,17 +226,37 @@ export const ToolBtn = styled.button`
           margin-left: auto;
           background-image: url(${props.$image});
         `;
-      case "exit":
+      default:
         return css`
           background-image: url(${props.$image});
         `;
     }
-  }}
+  }};
 `;
 
-export const CommentList = styled.div`
-  background-color: ${(props) => props.$bgColor};
-  padding: 4px 16px;
-  height: calc(100% - 121px);
-  overflow-y: auto;
+export const ShortsBox = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(${shorts_test_img});
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 24px;
+  z-index: 1;
+  ${(props) => {
+    switch (props?.$animation) {
+      case true:
+        return css`
+          border-radius: 24px 0 0 24px;
+          animation: ${animation.shorts.left} 0.5s ease forwards;
+        `;
+      case false:
+        return css`
+          border-radius: 24px;
+          animation: ${animation.shorts.right} 0.5s ease forwards;
+        `;
+    }
+  }}
 `;

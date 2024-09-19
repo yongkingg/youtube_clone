@@ -1,15 +1,9 @@
-import style from "./style/shorts.module.css";
 import React from "react";
 import useShortData from "./shortsButton/lib/useShortData";
-import ShortsButton from "./shortsButton/shortsButton";
 import Comment from "Widget/Comment/ui/Comment";
 import CommentInput from "Widget/CommentInput";
-import {
-  ShortsContainer,
-  CommentToolContainer,
-  ToolBtn,
-  CommentList,
-} from "./style";
+
+import { ShortsBox, ToolBtn, CommentList, Container } from "./style";
 
 import comment_exit_black from "../Shorts/asset/comment_exit.svg";
 import comment_exit_white from "../Shorts/asset/comment_exit_white.svg";
@@ -18,6 +12,17 @@ import comment_menu from "../Shorts/asset/comment_menu.svg";
 import comment_menu_white from "../Shorts/asset/comment_menu_white.svg";
 
 import { useSwitchClick } from "./model/useSwitchClick";
+
+import like from "../Shorts/asset/shorts_like.svg";
+import dislike from "../Shorts/asset/shorts_dislike.svg";
+import comment from "../Shorts/asset/comment.svg";
+import share from "../Shorts/asset/share.svg";
+import option from "../Shorts/asset/option.svg";
+import play from "../Shorts/asset/play.svg";
+import pause from "../Shorts/asset/pause.svg";
+import mute from "../Shorts/asset/mute.svg";
+import un_mute from "../Shorts/asset/un_mute.svg";
+
 const Shorts = React.memo((props) => {
   const { mode, darkColor } = props;
   const [shortsData] = useShortData();
@@ -27,88 +32,74 @@ const Shorts = React.memo((props) => {
   const interactionBtn = [
     {
       id: "like",
-      className: "shorts_like",
+      image: like,
     },
     {
       id: "disLike",
-      className: "shorts_dislike",
+      image: dislike,
     },
     {
       id: "commentCount",
-      className: "shorts_comment",
+      image: comment,
     },
     {
       id: "share",
-      className: "shorts_share",
+      image: share,
     },
     {
       id: "option",
-      className: "shorts_option",
+      image: option,
     },
   ];
 
   return (
-    <ShortsContainer onClick={switchClickEvent}>
-      <div
-        className={`${
-          isCommentBtnClicked == null
-            ? `${style.shorts}`
-            : isCommentBtnClicked
-            ? `${style.shorts} ${style.shorts_slide_left}`
-            : `${style.shorts} ${style.shorts_slide_right}`
-        }`}
-      >
-        <div className={`${style.shorts_button_container}`}>
-          <button
+    <Container $type="shorts" onClick={switchClickEvent}>
+      <ShortsBox $animation={isCommentBtnClicked}>
+        <Container $type="button">
+          <ToolBtn
+            $width="48px"
+            $height="48px"
+            $image={isPlay ? play : pause}
             data-id="play"
-            className={`${isPlay ? style.play : style.pause}`}
-          ></button>
-          <button
+          ></ToolBtn>
+          <ToolBtn
+            $width="48px"
+            $height="48px"
+            $image={isMute ? mute : un_mute}
             data-id="mute"
-            className={`${isMute ? style.mute : style.un_mute}`}
-          ></button>
-        </div>
+          ></ToolBtn>
+        </Container>
 
-        <div className={`${style.shorts_info_container}`}>
-          <div className={`${style.shorts_owner_box} ${style.svg_back}`}>
+        <Container $type="info">
+          <Container $type="shorts_owner_box">
             <img></img>
             <h1>@{shortsData.account}</h1>
             <button>구독</button>
-          </div>
-          <p className={style.shorts_title}>{shortsData.title}</p>
-        </div>
+          </Container>
+          <p>{shortsData.title}</p>
+        </Container>
 
-        <div
-          className={
-            !isCommentBtnClicked
-              ? `${style.shorts_interaction_box} ${style.closed_interaction_box}`
-              : `${style.shorts_interaction_box} ${style.opened_interaction_box}`
-          }
-        >
+        <Container $type="interaction" $animation={!isCommentBtnClicked}>
           {interactionBtn.map((element, index) => {
             return (
               <div data-id={element.id}>
-                <ShortsButton key={index} getClass={element.className} />
-                {shortsData[element.id] && (
-                  <p className={style.shorts_interaction_text}>
-                    {shortsData[element.id]}
-                  </p>
-                )}
+                <ToolBtn
+                  key={index}
+                  $width="48px"
+                  $height="48px"
+                  $bgColor="black"
+                  $image={element.image}
+                />
+                {shortsData[element.id] && <p>{shortsData[element.id]}</p>}
               </div>
             );
           })}
-        </div>
-      </div>
-      <div
-        className={`${
-          isCommentBtnClicked == null
-            ? `${style.shorts_comment_box}`
-            : isCommentBtnClicked
-            ? `${style.shorts_comment_box} ${style.comment_slide_right}`
-            : `${style.shorts_comment_box} ${style.comment_slide_left}`
-        }`}
-      >
-        <CommentToolContainer
+        </Container>
+      </ShortsBox>
+
+      <Container $type="comment" $animation={isCommentBtnClicked}>
+        <Container
+          $type="comment_tool"
           $bgColor={mode.bgColor}
           $fontColor={mode.fontColor}
         >
@@ -116,26 +107,30 @@ const Shorts = React.memo((props) => {
           <h3>{shortsData.commentCount}</h3>
           <ToolBtn
             $type="menu"
+            $width="40px"
+            $height="40px"
             $image={
               mode.bgColor == darkColor ? comment_menu_white : comment_menu
             }
           ></ToolBtn>
           <ToolBtn
-            $type="exit"
+            $width="40px"
+            $height="40px"
             $image={
               mode.bgColor == darkColor
                 ? comment_exit_white
                 : comment_exit_black
             }
           ></ToolBtn>
-        </CommentToolContainer>
+        </Container>
         {
-          <CommentList $bgColor={mode.bgColor}>
+          <Container $type="comment_list" $bgColor={mode.bgColor}>
             {Object.keys(shortsData).length ? (
               shortsData.comment.map((element, index) => {
                 return (
                   <Comment
                     key={index}
+                    $type={element.id}
                     element={element}
                     mode={mode}
                     darkColor={darkColor}
@@ -145,11 +140,11 @@ const Shorts = React.memo((props) => {
             ) : (
               <p>로딩중</p>
             )}
-          </CommentList>
+          </Container>
         }
         {<CommentInput mode={mode} darkColor={darkColor} />}
-      </div>
-    </ShortsContainer>
+      </Container>
+    </Container>
   );
 });
 

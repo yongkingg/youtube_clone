@@ -1,13 +1,8 @@
-import style from "../style/shorts.module.css";
+import Style from "./style";
 
 const ShortsButton = (props) => {
-  const { id, getClass } = props;
-  return (
-    <button
-      className={`${style[getClass]} ${style.svg_back}`}
-      data-id={id}
-    ></button>
-  );
+  const { id, image } = props;
+  return <Style.Button $image={image} data-id={id}></Style.Button>;
 };
 
 export default ShortsButton;
