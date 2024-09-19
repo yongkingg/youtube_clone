@@ -1,12 +1,46 @@
 import styled, { css } from "styled-components";
-import menu_black from "../../asset/menu_black.svg";
-import menu_white from "../../asset/menu_white.svg";
-import logo from "../../asset/youtube.svg";
-import logo_white from "../../asset/youtube_white.svg";
-import search from "../../asset/search_black.svg";
-import voice from "../../asset/voice_black.svg";
+import search from "../asset/search_black.svg";
+import voice from "../asset/voice_black.svg";
 
 export default {
+  Container: styled.div`
+    background-color: ${(props) => props.theme.bgColor};
+    color: ${(props) => props.theme.fontColor};
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    height: 59px;
+    ${(props) => {
+      switch (props.$type) {
+        case "header":
+          return css`
+            padding: 8px 16px 0;
+            width: 100%;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+          `;
+        case "side_box":
+          return css`
+            flex: 0 1 170px;
+            justify-content: start;
+          `;
+        case "search_box":
+          return css`
+            flex: 0 1 720px;
+            margin: 0 20px;
+          `;
+        case "tool_box":
+          return css`
+          flex : 0 1 150px
+          justify-self: space-between;
+          `;
+      }
+    }}
+  `,
   Button: styled.button`
     background-position: center;
     background-repeat: no-repeat;
@@ -62,5 +96,22 @@ export default {
           `;
       }
     }}
+  `,
+
+  Search: styled.div`
+    flex: 0 1 660px;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+
+    input {
+      flex: 0 1 600px;
+      height: 40px;
+      border-radius: 20px 0 0 20px;
+      padding: 0 16px;
+      line-height: 40px;
+      border: 1px solid lightgrey;
+      color: grey;
+    }
   `,
 };
