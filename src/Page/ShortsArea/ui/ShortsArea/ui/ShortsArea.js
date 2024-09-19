@@ -3,12 +3,15 @@ import React from "react";
 import Shorts from "../../Shorts/Shorts";
 import useUpDown from "../model/useUpDown";
 
-const ShortsArea = () => {
+import { ShortsSection } from "./style";
+
+const ShortsArea = (props) => {
+  const { mode, darkColor } = props;
   const [isDownButtonClicked, setDownValue] = useUpDown();
 
   return (
-    <section className={style.shorts_area} onClick={setDownValue}>
-      <Shorts />
+    <ShortsSection $bgColor={mode.bgColor} onClick={setDownValue}>
+      <Shorts mode={mode} darkColor={darkColor} />
       <button
         className={
           isDownButtonClicked
@@ -25,7 +28,7 @@ const ShortsArea = () => {
         }
         data-id="down"
       ></button>
-    </section>
+    </ShortsSection>
   );
 };
 

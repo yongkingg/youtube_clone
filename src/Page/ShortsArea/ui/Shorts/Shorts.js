@@ -2,16 +2,27 @@ import style from "./style/shorts.module.css";
 import React from "react";
 import useShortData from "./shortsButton/lib/useShortData";
 import ShortsButton from "./shortsButton/shortsButton";
-import HoverButton from "Shared/components/HoverButton";
 import Comment from "Widget/Comment/ui/Comment";
-import avatar from "Shared/asset/avatar_black.svg";
 import CommentInput from "Widget/CommentInput";
+import {
+  ShortsContainer,
+  CommentToolContainer,
+  ToolBtn,
+  CommentList,
+} from "./style";
 
-const Shorts = React.memo(() => {
-  const [isCommentBtnClicked, openComment] = React.useState(null);
-  const [isPlay, setPlay] = React.useState(true);
-  const [isMute, setMute] = React.useState(false);
+import comment_exit_black from "../Shorts/asset/comment_exit.svg";
+import comment_exit_white from "../Shorts/asset/comment_exit_white.svg";
+
+import comment_menu from "../Shorts/asset/comment_menu.svg";
+import comment_menu_white from "../Shorts/asset/comment_menu_white.svg";
+
+import { useSwitchClick } from "./model/useSwitchClick";
+const Shorts = React.memo((props) => {
+  const { mode, darkColor } = props;
   const [shortsData] = useShortData();
+  const [isPlay, isMute, isCommentBtnClicked, switchClickEvent] =
+    useSwitchClick();
 
   const interactionBtn = [
     {
@@ -36,30 +47,8 @@ const Shorts = React.memo(() => {
     },
   ];
 
-  const switchClickEvent = (e) => {
-    try {
-      const clickedBtn = e.target.closest("[data-id]").dataset.id;
-      switch (clickedBtn) {
-        case "play":
-          setPlay(!isPlay);
-          break;
-        case "mute":
-          setMute(!isMute);
-          break;
-        case "exit_comment":
-        case "commentCount":
-          if (isCommentBtnClicked == null) {
-            openComment(true);
-          } else {
-            openComment(!isCommentBtnClicked);
-          }
-          break;
-      }
-    } catch (e) {}
-  };
-
   return (
-    <div className={`${style.shorts_container}`} onClick={switchClickEvent}>
+    <ShortsContainer onClick={switchClickEvent}>
       <div
         className={`${
           isCommentBtnClicked == null
@@ -119,26 +108,48 @@ const Shorts = React.memo(() => {
             : `${style.shorts_comment_box} ${style.comment_slide_left}`
         }`}
       >
-        <div className={style.comment_tool_container}>
+        <CommentToolContainer
+          $bgColor={mode.bgColor}
+          $fontColor={mode.fontColor}
+        >
           <h1>댓글</h1>
           <h3>{shortsData.commentCount}</h3>
-          <button className={style.menu_button}></button>
-          <button className={style.exit_button} data-id="exit_comment"></button>
-        </div>
+          <ToolBtn
+            $type="menu"
+            $image={
+              mode.bgColor == darkColor ? comment_menu_white : comment_menu
+            }
+          ></ToolBtn>
+          <ToolBtn
+            $type="exit"
+            $image={
+              mode.bgColor == darkColor
+                ? comment_exit_white
+                : comment_exit_black
+            }
+          ></ToolBtn>
+        </CommentToolContainer>
         {
-          <div className={style.comment_list}>
+          <CommentList $bgColor={mode.bgColor}>
             {Object.keys(shortsData).length ? (
               shortsData.comment.map((element, index) => {
-                return <Comment key={index} element={element} />;
+                return (
+                  <Comment
+                    key={index}
+                    element={element}
+                    mode={mode}
+                    darkColor={darkColor}
+                  />
+                );
               })
             ) : (
               <p>로딩중</p>
             )}
-          </div>
+          </CommentList>
         }
-        {<CommentInput />}
+        {<CommentInput mode={mode} darkColor={darkColor} />}
       </div>
-    </div>
+    </ShortsContainer>
   );
 });
 

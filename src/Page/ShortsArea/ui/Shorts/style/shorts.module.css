@@ -2,9 +2,7 @@
   display: flex;
   flex-direction: row;
   min-width: 450px;
-  height: calc(100vh - 91px);
   aspect-ratio: 9/16;
-
   position: relative;
 }
 
@@ -14,7 +12,6 @@
   left: 0;
   width: 100%;
   height: 100%;
-  min-height: 820px;
   background-image: url(../asset/shorts_test_img.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -71,18 +68,18 @@
   left: 0;
   max-width: 450px;
   min-width: 450px;
-  aspect-ratio: 9/16;
-  border-radius: 0 20px 20px 0;
+  height: 100%;
+  border-radius: 24px;
   box-shadow: 1px 1px 8px lightgrey;
 }
 
 .comment_slide_left {
-  border-radius: 24px 0 0 24px;
+  border-radius: 24px;
   animation: comment_slide_left 0.5s ease forwards;
 }
 
 .comment_slide_right {
-  border-radius: 24px;
+  border-radius: 0 24px 24px 0;
   animation: comment_slide_right 0.5s ease forwards;
 }
 
@@ -103,6 +100,7 @@
     transform: translateX(50%);
   }
 }
+
 .shorts_button_container button {
   width: 48px;
   height: 48px;

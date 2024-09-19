@@ -9,6 +9,7 @@ import { ThemeProvider } from "styled-components";
 import { ResetStyle } from "../Shared/style/reset.js";
 import { GlobalStyle } from "../Shared/style/globalStyle";
 import { useSwitchTheme } from "./model/useSwitchTheme";
+
 const App = () => {
   const [isMenuClicked, toggleMenu] = useMenuClick();
   const [mode, switchTheme] = useSwitchTheme();

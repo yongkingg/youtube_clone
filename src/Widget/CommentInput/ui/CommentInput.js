@@ -6,7 +6,6 @@ import avatar_white from "Shared/asset/avatar_white.svg";
 import { CommentInputContainer } from "./style";
 const CommentInput = (props) => {
   const { mode, darkColor } = props;
-  console.log(mode);
   return (
     <CommentInputContainer $bgColor={mode.bgColor}>
       <HoverButton

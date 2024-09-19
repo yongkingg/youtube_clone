@@ -12,6 +12,7 @@ export const CommentInputContainer = styled.div`
   display: flex;
   flex-direction: row;
   padding: 16px;
+  border-radius: 24px;
   background-color: ${(props) => props.$bgColor};
 
   input {
