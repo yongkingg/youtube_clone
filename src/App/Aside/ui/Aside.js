@@ -1,8 +1,3 @@
-import OpenAside from "./OpenedAside/OpenAside";
-import CloseAside from "./ClosedAside/CloseAside";
-import home from "../asset/home.svg";
-import home_white from "../asset/home_white.svg";
-
 import shorts from "../asset/shorts.svg";
 import shorts_white from "../asset/shorts_white.svg";
 
@@ -13,9 +8,12 @@ import me from "../asset/me.svg";
 import me_white from "../asset/me_white.svg";
 
 import React from "react";
+import Style from "./style";
+import useAsideClickEvent from "../model/useAsideClickEvent";
 
 const Aside = React.memo((props) => {
   const { isMenuClicked, mode, darkColor } = props;
+  const clickEvent = useAsideClickEvent();
 
   const asideButtons = [
     {
@@ -37,13 +35,22 @@ const Aside = React.memo((props) => {
   ];
 
   return (
-    <>
-      {isMenuClicked ? (
-        <OpenAside mode={mode} buttons={asideButtons} />
-      ) : (
-        <CloseAside mode={mode} buttons={asideButtons} />
-      )}
-    </>
+    <Style.Aside
+      $type={isMenuClicked ? "open" : "close"}
+      $bgColor={mode.bgColor}
+      onClick={clickEvent}
+    >
+      {asideButtons.map((element, index) => (
+        <Style.Buttons
+          $type={isMenuClicked ? "open" : "close"}
+          $color={mode.fontColor}
+          data-button-id={index}
+        >
+          <image style={{ backgroundImage: `url(${element.image})` }} />
+          <p>{element.name}</p>
+        </Style.Buttons>
+      ))}
+    </Style.Aside>
   );
 });
 
