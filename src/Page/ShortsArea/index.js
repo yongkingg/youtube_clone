@@ -1,2 +1,2 @@
-import ShortsArea from "./ui/ShortsArea/ui/ShortsArea";
+import ShortsArea from "./ui/ShortsArea";
 export default ShortsArea;
