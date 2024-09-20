@@ -1,25 +1,3 @@
-.shorts_area {
-  flex-grow: 1;
-  position: relative;
-  padding: 16px;
-  height: fit-content;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  height: calc(100% - 67px);
-}
-
-.shorts_next_btn_container {
-  width: fit-content;
-  height: 150px;
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
 .shorts_up {
   position: absolute;
   width: 56px;

@@ -2,33 +2,29 @@ import style from "./short.module.css";
 import React from "react";
 import Shorts from "../../Shorts/Shorts";
 import useUpDown from "../model/useUpDown";
-
-import { ShortsSection } from "./style";
-
+import up from "Page/ShortsArea/asset/up.svg";
+import down from "Page/ShortsArea/asset/down.svg";
+import Style from "./style";
 const ShortsArea = (props) => {
   const { mode, darkColor } = props;
   const [isDownButtonClicked, setDownValue] = useUpDown();
 
   return (
-    <ShortsSection $bgColor={mode.bgColor} onClick={setDownValue}>
+    <Style.Container $bgColor={mode.bgColor} onClick={setDownValue}>
       <Shorts mode={mode} darkColor={darkColor} />
-      <button
-        className={
-          isDownButtonClicked
-            ? `${style.shorts_up} ${style.svg_back} ${style.after_up_pos}`
-            : `${style.shorts_up} ${style.svg_back} ${style.default_pos}`
-        }
+      <Style.Button
+        $type="up"
+        $image={up}
+        $animation={isDownButtonClicked ? "up" : ""}
         data-id="up"
-      ></button>
-      <button
-        className={
-          isDownButtonClicked
-            ? `${style.shorts_down} ${style.svg_back} ${style.after_down_pos}`
-            : `${style.shorts_down} ${style.svg_back} ${style.default_pos}`
-        }
+      ></Style.Button>
+      <Style.Button
+        $type="up"
+        $image={down}
+        $animation={isDownButtonClicked ? "down" : ""}
         data-id="down"
-      ></button>
-    </ShortsSection>
+      ></Style.Button>
+    </Style.Container>
   );
 };
 
