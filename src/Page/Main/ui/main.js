@@ -1,5 +1,5 @@
 import useVideoData from "Shared/api/useVideoData";
-import Video from "../video/video";
+import Video from "../video/ui/video";
 import useVideoClick from "Shared/model/useVideoClick";
 import Style from "./style";
 

@@ -1,4 +1,3 @@
-import HoverButton from "Shared/components/HoverButton";
 import { useLogoClick } from "../../model/useLogoClick";
 
 import video_black from "../asset/video_black.svg";
@@ -65,9 +64,10 @@ const Header = (props) => {
 
       <Style.Container $type="tool_box">
         {headerButtons.map((element, index) => (
-          <HoverButton
+          <Style.Button
+            $type="hover"
             key={index}
-            imageUrl={mode.bgColor == darkColor ? element.white : element.black}
+            $image={mode.bgColor == darkColor ? element.white : element.black}
           />
         ))}
       </Style.Container>

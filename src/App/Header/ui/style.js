@@ -94,6 +94,21 @@ export default {
               background-color: lightgrey;
             }
           `;
+        case "hover":
+          return css`
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url(${(props) => props.$image});
+            background-size: 32px; /* 이미지 크기 조정 */
+            &:hover {
+              background-color: lightgrey;
+              border-radius: 50%;
+            }
+          `;
       }
     }}
   `,

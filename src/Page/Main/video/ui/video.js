@@ -1,0 +1,32 @@
+import Style from "./style";
+
+const Video = (props) => {
+  const { element, mode } = props;
+
+  return (
+    <Style.Box
+      $type="video"
+      $bgColor={mode.bgColor}
+      data-video-id={element.index}
+      data-role="video"
+    >
+      <Style.Image $type="thumnail" src={element.data.thumnail}></Style.Image>
+      <Style.Box $type="tmp">
+        <Style.Image $type="icon" src={element.data.channelIcon}></Style.Image>
+        <Style.Box $type="video_info">
+          <Style.Text $type="title" $fontColor={mode.fontColor}>
+            {element.data.title}
+          </Style.Text>
+          <Style.Text $type="info" $fontColor={mode.fontColor}>
+            {element.data.name}
+          </Style.Text>
+          <Style.Text $type="info" $fontColor={mode.fontColor}>
+            {element.data.info}
+          </Style.Text>
+        </Style.Box>
+      </Style.Box>
+    </Style.Box>
+  );
+};
+
+export default Video;
