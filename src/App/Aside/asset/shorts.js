@@ -9,8 +9,6 @@ const Shorts = ({ fill }) => {
       style={{
         pointerEvents: "none",
         display: "inherit",
-        width: "100%",
-        height: "100%",
       }}
       aria-hidden="true"
       fill={fill}

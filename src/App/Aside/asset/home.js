@@ -10,8 +10,6 @@ const Home = ({ fill }) => {
       style={{
         pointerEvents: "none",
         display: "inherit",
-        width: "100%",
-        height: "100%",
       }} // 객체 형태로 수정
       aria-hidden="true"
       fill={fill}

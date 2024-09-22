@@ -1,6 +1,4 @@
 import styled, { css } from "styled-components";
-import search from "../asset/search_black.svg";
-import voice from "../asset/voice_black.svg";
 
 // theme은 설정값을 정해놓고, props로 내려주지 않아도 사용할 수 있게 하기 위해
 // 사용한다.
@@ -67,15 +65,14 @@ export default {
         case "logo":
           return css`
             min-width: 110px;
-            background-image: url(${props.$image});
-            background-size: contain;
+            height: 59px;
+            background-size: cover;
           `;
         case "search":
           return css`
             min-width: 60px;
             height: 40px;
             border-radius: 0 20px 20px 0;
-            background-image: url(${search});
             background-color: #f2f2f2;
             border: 1px solid lightgrey;
             background-size: 32px;
@@ -91,7 +88,6 @@ export default {
             border-radius: 50%;
             background-color: #f2f2f2;
             border: 1px solid lightgrey;
-            background-image: url(${voice});
             background-size: 32px;
             &:hover {
               background-color: lightgrey;
@@ -105,8 +101,6 @@ export default {
             display: flex;
             justify-content: center;
             align-items: center;
-            background-image: url(${(props) => props.$image});
-            background-size: 32px; /* 이미지 크기 조정 */
             &:hover {
               background-color: lightgrey;
               border-radius: 50%;

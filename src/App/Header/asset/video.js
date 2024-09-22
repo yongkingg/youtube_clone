@@ -1,22 +1,19 @@
-const Me = ({ fill }) => {
+export const Video = ({ fill }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      enable-background="new 0 0 24 24"
       viewBox="0 0 24 24"
-      width="24"
-      height="24"
-      focusable="false"
       style={{
         pointerEvents: "none",
         display: "inherit",
+        width: "24",
+        height: "24",
       }}
+      focusable="false"
       aria-hidden="true"
       fill={fill}
     >
-      <path d="m11 7 6 3.5-6 3.5V7zm7 13H4V6H3v15h15v-1zm3-2H6V3h15v15zM7 17h13V4H7v13z"></path>
+      <path d="M14 13h-3v3H9v-3H6v-2h3V8h2v3h3v2zm3-7H3v12h14v-6.39l4 1.83V8.56l-4 1.83V6m1-1v3.83L22 7v8l-4-1.83V19H2V5h16z"></path>
     </svg>
   );
 };
-
-export default Me;
