@@ -1,15 +1,12 @@
 import Style from "./style";
-import avatar_black from "Shared/asset/avatar_black.svg";
-import avatar_white from "Shared/asset/avatar_white.svg";
+import { Avatar } from "Shared/asset/avatar";
 
 const CommentInput = (props) => {
   const { mode, darkColor } = props;
   return (
     <Style.Container>
-      <Style.Button
-        $type="hover"
-        $image={mode.bgColor == darkColor ? avatar_white : avatar_black}
-      />
+      <Style.Button $type="hover" />
+      <Avatar />
       <input placeholder="댓글 추가..." />
     </Style.Container>
   );

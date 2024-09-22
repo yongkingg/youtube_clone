@@ -1,5 +1,4 @@
 import React from "react";
-import avatar from "Shared/asset/avatar_black.svg";
 const useShortData = () => {
   const [shortsData, setShortsData] = React.useState([]);
 
@@ -7,7 +6,6 @@ const useShortData = () => {
     const commentData = [];
     for (let index = 0; index < 5; index++) {
       commentData.push({
-        writerIcon: avatar,
         writer: `작성자${index + 1}`,
         content: "안녕하세요 이것은 댓글의 내용입니다.".repeat(5 * (index + 1)),
         like: `${index}`,
