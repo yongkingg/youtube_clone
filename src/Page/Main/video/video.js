@@ -1,15 +1,10 @@
 import Style from "./style";
 
 const Video = (props) => {
-  const { element, mode } = props;
+  const { element } = props;
 
   return (
-    <Style.Box
-      $type="video"
-      $bgColor={mode.bgColor}
-      data-video-id={element.index}
-      data-role="video"
-    >
+    <Style.Box $type="video" data-video-id={element.index} data-role="video">
       <Style.Image $type="thumnail" src={element.data.thumnail}></Style.Image>
       <Style.Box $type="tmp">
         <Style.Image $type="icon" src={element.data.channelIcon}></Style.Image>

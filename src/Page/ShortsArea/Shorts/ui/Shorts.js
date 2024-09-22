@@ -3,28 +3,24 @@ import useShortData from "../model/useShortData";
 import Comment from "Widget/Comment/ui/Comment";
 import CommentInput from "Widget/CommentInput";
 
-import comment_exit_black from "../asset/comment_exit.svg";
-import comment_exit_white from "../asset/comment_exit_white.svg";
-
-import comment_menu from "../asset/comment_menu.svg";
-import comment_menu_white from "../asset/comment_menu_white.svg";
-
 import { useSwitchClick } from "../model/useSwitchClick";
-
-import like from "../asset/shorts_like.svg";
-import dislike from "../asset/shorts_dislike.svg";
-import comment from "../asset/comment.svg";
-import share from "../asset/share.svg";
-import option from "../asset/option.svg";
-import play from "../asset/play.svg";
-import pause from "../asset/pause.svg";
-import mute from "../asset/mute.svg";
-import un_mute from "../asset/un_mute.svg";
 
 import Style from "./style";
 
-const Shorts = React.memo((props) => {
-  const { mode, darkColor } = props;
+import { ShortsLike } from "../asset/shorts_like";
+import { ShortsDislike } from "../asset/shorts_dislike";
+import { CommentExit } from "../asset/comment_exit";
+import { CommentMenu } from "../asset/comment_menu";
+import { CommentIcon } from "../asset/comment_icon";
+import { Mute } from "../asset/mute";
+import { UnMute } from "../asset/un_mute";
+import { Dislike } from "Widget/Comment/asset/dislike";
+import { Share } from "../asset/share";
+import { Option } from "../asset/option";
+import { Play } from "../asset/play";
+import { Pause } from "../asset/pause";
+
+const Shorts = React.memo(() => {
   const [shortsData] = useShortData();
   const [isPlay, isMute, isCommentBtnClicked, switchClickEvent] =
     useSwitchClick();
@@ -32,23 +28,23 @@ const Shorts = React.memo((props) => {
   const interactionBtn = [
     {
       id: "like",
-      image: like,
+      image: <ShortsLike />,
     },
     {
       id: "disLike",
-      image: dislike,
+      image: <Dislike />,
     },
     {
       id: "commentCount",
-      image: comment,
+      image: <CommentIcon />,
     },
     {
       id: "share",
-      image: share,
+      image: <Share />,
     },
     {
       id: "option",
-      image: option,
+      image: <Option />,
     },
   ];
 
@@ -56,20 +52,12 @@ const Shorts = React.memo((props) => {
     <Style.Container $type="shorts" onClick={switchClickEvent}>
       <Style.Main $type="shorts" $animation={isCommentBtnClicked}>
         <Style.Container $type="button">
-          <Style.ToolBtn
-            $width="48px"
-            $height="48px"
-            $bgColor="black"
-            $image={isPlay ? play : pause}
-            data-id="play"
-          ></Style.ToolBtn>
-          <Style.ToolBtn
-            $width="48px"
-            $height="48px"
-            $bgColor="black"
-            $image={isMute ? mute : un_mute}
-            data-id="mute"
-          ></Style.ToolBtn>
+          <Style.ToolBtn $width="48px" $height="48px" data-id="play">
+            {isPlay ? <Play /> : <Pause />}
+          </Style.ToolBtn>
+          <Style.ToolBtn $width="48px" $height="48px" data-id="mute">
+            {isMute ? <Mute /> : <UnMute />}
+          </Style.ToolBtn>
         </Style.Container>
 
         <Style.Container $type="info">
@@ -85,12 +73,9 @@ const Shorts = React.memo((props) => {
           {interactionBtn.map((element, index) => {
             return (
               <div data-id={element.id}>
-                <Style.ToolBtn
-                  key={index}
-                  $width="48px"
-                  $height="48px"
-                  $image={element.image}
-                />
+                <Style.ToolBtn key={index} $width="48px" $height="48px">
+                  {element.image}
+                </Style.ToolBtn>
                 {shortsData[element.id] && <p>{shortsData[element.id]}</p>}
               </div>
             );
@@ -102,23 +87,12 @@ const Shorts = React.memo((props) => {
         <Style.Container $type="comment_tool">
           <h1>댓글</h1>
           <h3>{shortsData.commentCount}</h3>
-          <Style.ToolBtn
-            $type="menu"
-            $width="40px"
-            $height="40px"
-            $image={
-              mode.bgColor == darkColor ? comment_menu_white : comment_menu
-            }
-          ></Style.ToolBtn>
-          <Style.ToolBtn
-            $width="40px"
-            $height="40px"
-            $image={
-              mode.bgColor == darkColor
-                ? comment_exit_white
-                : comment_exit_black
-            }
-          ></Style.ToolBtn>
+          <Style.ToolBtn $type="menu" $width="40px" $height="40px">
+            <CommentMenu />
+          </Style.ToolBtn>
+          <Style.ToolBtn $width="40px" $height="40px">
+            <CommentExit />
+          </Style.ToolBtn>
         </Style.Container>
         {
           <Style.Container $type="comment_list">

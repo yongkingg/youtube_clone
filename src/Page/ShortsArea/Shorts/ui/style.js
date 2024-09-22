@@ -207,6 +207,9 @@ export default {
   `,
 
   ToolBtn: styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: ${(props) => props.$width};
     height: ${(props) => props.$height};
     background-color: ${(props) => props.theme.bgColor};
@@ -219,10 +222,6 @@ export default {
         case "menu":
           return css`
             margin-left: auto;
-            background-image: url(${props.$image});
-          `;
-        default:
-          return css`
             background-image: url(${props.$image});
           `;
       }

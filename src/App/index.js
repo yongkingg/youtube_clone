@@ -11,7 +11,6 @@ import { GlobalStyle } from "../Shared/style/globalStyle";
 import { useSwitchTheme } from "./model/useSwitchTheme";
 
 const App = () => {
-  const [isMenuClicked, toggleMenu] = useMenuClick();
   const [mode, switchTheme] = useSwitchTheme();
   const darkColor = "var(--dark-color)";
 
@@ -23,7 +22,7 @@ const App = () => {
         <Header switchTheme={switchTheme} />
         <Container>
           <Aside />
-          <Page mode={mode} darkColor={darkColor} />
+          <Page />
         </Container>
       </Router>
     </ThemeProvider>
