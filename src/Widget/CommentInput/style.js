@@ -15,10 +15,10 @@ export default {
     flex-direction: row;
     padding: 16px;
     border-radius: 24px;
-    background-color: ${(props) => props.$bgColor};
+    background-color: ${(props) => props.theme.bgColor};
 
     input {
-      background-color: ${(props) => props.$bgColor};
+      background-color: ${(props) => props.theme.bgColor};
       margin-left: 16px;
       border: none;
       border-bottom: 1px solid lightgray;

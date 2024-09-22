@@ -12,7 +12,7 @@ export default {
             display: flex;
             flex-direction: row;
             justify-content: start;
-            background-color: ${(props) => props.$bgColor};
+            background-color: ${(props) => props.theme.bgColor};
           `;
         case "feedback":
           return css`
@@ -34,7 +34,7 @@ export default {
   `,
 
   Text: styled.p`
-    color: ${(props) => props.$fontColor};
+    color: ${(props) => props.theme.fontColor};
     font-family: var(--main-font);
     ${(props) => {
       switch (props.$type) {
@@ -82,7 +82,7 @@ export default {
             width: 40px;
             height: 32px;
             margin-left: 12px;
-            color: ${(props) => props.$fontColor};
+            color: ${(props) => props.theme.fontColor};
             &:hover {
               background-color: lightgrey;
               border-radius: 16px;

@@ -9,7 +9,7 @@ const Main = (props) => {
 
   const handleVideoClick = useVideoClick();
   return (
-    <Style.Container $bgColor={mode.bgColor} onClick={handleVideoClick}>
+    <Style.Container onClick={handleVideoClick}>
       {videoData?.map((element, index) => (
         <Video key={index} element={element} mode={mode} />
       ))}

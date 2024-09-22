@@ -11,13 +11,13 @@ export default {
     background-color: ${(props) => props.theme.bgColor};
     ${(props) => {
       switch (props.$type) {
-        case "open":
+        case true:
           return css`
             width: 240px;
             align-items: start;
             padding: 16px 12px;
           `;
-        case "close":
+        case false:
           return css`
             width: 72px;
             align-items: center;
@@ -33,7 +33,7 @@ export default {
     align-items: center;
     ${(props) => {
       switch (props.$type) {
-        case "open":
+        case true:
           return css`
             width: 204px;
             height: 40px;
@@ -44,7 +44,7 @@ export default {
               margin-left: 10px;
             }
           `;
-        case "close":
+        case false:
           return css`
             width: 64px;
             height: 74px;

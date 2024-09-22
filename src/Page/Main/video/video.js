@@ -14,15 +14,9 @@ const Video = (props) => {
       <Style.Box $type="tmp">
         <Style.Image $type="icon" src={element.data.channelIcon}></Style.Image>
         <Style.Box $type="video_info">
-          <Style.Text $type="title" $fontColor={mode.fontColor}>
-            {element.data.title}
-          </Style.Text>
-          <Style.Text $type="info" $fontColor={mode.fontColor}>
-            {element.data.name}
-          </Style.Text>
-          <Style.Text $type="info" $fontColor={mode.fontColor}>
-            {element.data.info}
-          </Style.Text>
+          <Style.Text $type="title">{element.data.title}</Style.Text>
+          <Style.Text $type="info">{element.data.name}</Style.Text>
+          <Style.Text $type="info">{element.data.info}</Style.Text>
         </Style.Box>
       </Style.Box>
     </Style.Box>

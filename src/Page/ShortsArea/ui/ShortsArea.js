@@ -9,7 +9,7 @@ const ShortsArea = (props) => {
   const [isDownButtonClicked, setDownValue] = useUpDown();
 
   return (
-    <Style.Container $bgColor={mode.bgColor} onClick={setDownValue}>
+    <Style.Container onClick={setDownValue}>
       <Shorts mode={mode} darkColor={darkColor} />
       <Style.Button
         $type="up"

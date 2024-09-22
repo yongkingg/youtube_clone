@@ -4,7 +4,7 @@ export default {
   Section: styled.section`
     display: flex;
     flex-direction: column;
-    background-color: ${(props) => props.$bgColor};
+    background-color: ${(props) => props.theme.bgColor};
     ${(props) => {
       switch (props.$type) {
         case "video":
@@ -29,7 +29,7 @@ export default {
   `,
   Container: styled.div`
     display: flex;
-    background-color: ${(props) => props.$bgColor};
+    background-color: ${(props) => props.theme.bgColor};
     ${(props) => {
       switch (props.$type) {
         case "video_detail":
@@ -55,7 +55,7 @@ export default {
   `,
   Text: styled.p`
     font-family: var(--main-font);
-    color: ${(props) => props.$fontColor};
+    color: ${(props) => props.theme.fontColor};
     ${(props) => {
       switch (props.$type) {
         case "info":

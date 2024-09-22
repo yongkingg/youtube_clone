@@ -11,7 +11,7 @@ export default {
             flex-direction: column;
             flex: 1 0 310px;
             height: 330px;
-            background-color: ${(props) => props.$bgColor};
+            background-color: ${(props) => props.theme.bgColor};
           `;
         case "video_info":
           return css`
@@ -51,7 +51,7 @@ export default {
   `,
   Text: styled.p`
     font-family: var(--main-font);
-    color: ${(props) => props.$fontColor};
+    color: ${(props) => props.theme.fontColor};
     ${(props) => {
       switch (props.$type) {
         case "title":

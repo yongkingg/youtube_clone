@@ -8,7 +8,6 @@ export default {
     flex-wrap: wrap;
     padding: 24px 12px;
     gap: 8px;
-    background-color: ${(props) => props.$bgColor};
-    // props.theme.bgColor로 가져와야함
+    background-color: ${(props) => props.theme.bgColor};
   `,
 };

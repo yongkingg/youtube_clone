@@ -34,17 +34,11 @@ const Aside = React.memo((props) => {
     },
   ];
 
-  // isMenuClicked를 string 말고 true false로 적용하자
   return (
-    <Style.Aside
-      $type={isMenuClicked ? "open" : "close"}
-      $bgColor={mode.bgColor}
-      onClick={clickEvent}
-    >
+    <Style.Aside $type={isMenuClicked ? true : false} onClick={clickEvent}>
       {asideButtons.map((element, index) => (
         <Style.Buttons
-          $type={isMenuClicked ? "open" : "close"}
-          $color={mode.fontColor}
+          $type={isMenuClicked ? true : false}
           data-button-id={index}
         >
           <image style={{ backgroundImage: `url(${element.image})` }} />

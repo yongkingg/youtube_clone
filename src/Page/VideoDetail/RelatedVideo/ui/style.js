@@ -19,13 +19,13 @@ export const ColumnSet = styled.div`
   gap: 4px;
 
   h1 {
-    color: ${(props) => props.$fontColor};
+    color: ${(props) => props.theme.fontColor};
     font-family: var(--main-font);
     font-size: 14px;
   }
 
   p {
-    color: ${(props) => props.$fontColor};
+    color: ${(props) => props.theme.fontColor};
     font-family: var(--main-font);
     font-size: 12px;
   }

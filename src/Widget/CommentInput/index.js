@@ -5,7 +5,7 @@ import avatar_white from "Shared/asset/avatar_white.svg";
 const CommentInput = (props) => {
   const { mode, darkColor } = props;
   return (
-    <Style.Container $bgColor={mode.bgColor}>
+    <Style.Container>
       <Style.Button
         $type="hover"
         $image={mode.bgColor == darkColor ? avatar_white : avatar_black}
