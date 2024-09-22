@@ -34,6 +34,7 @@ const Aside = React.memo((props) => {
     },
   ];
 
+  // isMenuClicked를 string 말고 true false로 적용하자
   return (
     <Style.Aside
       $type={isMenuClicked ? "open" : "close"}

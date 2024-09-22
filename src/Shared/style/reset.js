@@ -165,3 +165,5 @@ export const ResetStyle = createGlobalStyle`
     background: none;
   }
 `;
+
+// App 내부로 가는게 맞지 않았나 ..

@@ -9,5 +9,6 @@ export default {
     padding: 24px 12px;
     gap: 8px;
     background-color: ${(props) => props.$bgColor};
+    // props.theme.bgColor로 가져와야함
   `,
 };

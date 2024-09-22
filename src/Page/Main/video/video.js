@@ -30,3 +30,5 @@ const Video = (props) => {
 };
 
 export default Video;
+
+// 파일명 : index

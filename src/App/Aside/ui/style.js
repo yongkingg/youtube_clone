@@ -8,7 +8,7 @@ export default {
     position: sticky;
     top: 59px;
     left: 0;
-    background-color: ${(props) => props.$bgColor};
+    background-color: ${(props) => props.theme.bgColor};
     ${(props) => {
       switch (props.$type) {
         case "open":
@@ -60,7 +60,7 @@ export default {
     }}
 
     p {
-      color: ${(props) => props.$color};
+      color: ${(props) => props.theme.fontColor};
       font-size: 10px;
     }
 

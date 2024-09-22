@@ -25,6 +25,7 @@ const animation = {
   `,
 };
 
+// theme에 있는 값을 가져와서 적용하기
 export default {
   Container: styled.section`
     background-color: ${(props) => props.$bgColor};

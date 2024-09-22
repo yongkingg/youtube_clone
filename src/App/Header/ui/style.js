@@ -2,6 +2,9 @@ import styled, { css } from "styled-components";
 import search from "../asset/search_black.svg";
 import voice from "../asset/voice_black.svg";
 
+// theme은 설정값을 정해놓고, props로 내려주지 않아도 사용할 수 있게 하기 위해
+// 사용한다.
+
 export default {
   Container: styled.div`
     background-color: ${(props) => props.theme.bgColor};
