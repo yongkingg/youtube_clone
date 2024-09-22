@@ -1,36 +1,32 @@
-import shorts from "../asset/shorts.svg";
-import shorts_white from "../asset/shorts_white.svg";
-
-import subscribe from "../asset/subscribe.svg";
-import subscribe_white from "../asset/subscribe_white.svg";
-
-import me from "../asset/me.svg";
-import me_white from "../asset/me_white.svg";
-
 import React from "react";
 import Style from "./style";
 import useAsideClickEvent from "../model/useAsideClickEvent";
 
+import Home from "../asset/home";
+import Shorts from "../asset/shorts";
+import Subscribe from "../asset/subscribe";
+import Me from "../asset/me";
+
 const Aside = React.memo((props) => {
-  const { isMenuClicked, mode, darkColor } = props;
+  const { isMenuClicked } = props;
   const clickEvent = useAsideClickEvent();
 
   const asideButtons = [
     {
       name: "홈",
-      image: mode.bgColor == darkColor ? me_white : me,
+      image: Home,
     },
     {
       name: "Shorts",
-      image: mode.bgColor == darkColor ? shorts_white : shorts,
+      image: Shorts,
     },
     {
       name: "구독",
-      image: mode.bgColor == darkColor ? subscribe_white : subscribe,
+      image: Subscribe,
     },
     {
       name: "나",
-      image: mode.bgColor == darkColor ? me_white : me,
+      image: Me,
     },
   ];
 
@@ -38,10 +34,12 @@ const Aside = React.memo((props) => {
     <Style.Aside $type={isMenuClicked ? true : false} onClick={clickEvent}>
       {asideButtons.map((element, index) => (
         <Style.Buttons
+          key={index}
           $type={isMenuClicked ? true : false}
           data-button-id={index}
         >
-          <image style={{ backgroundImage: `url(${element.image})` }} />
+          {/* <image style={{ backgroundImage: `url(${element.image})` }} /> */}
+          <element.image />
           <p>{element.name}</p>
         </Style.Buttons>
       ))}
