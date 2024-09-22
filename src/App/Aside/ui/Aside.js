@@ -6,11 +6,11 @@ import Home from "../asset/home";
 import Shorts from "../asset/shorts";
 import Subscribe from "../asset/subscribe";
 import Me from "../asset/me";
+import useSetAside from "Shared/recoil/useSetAside";
 
-const Aside = React.memo((props) => {
-  const { isMenuClicked } = props;
+const Aside = React.memo(() => {
   const clickEvent = useAsideClickEvent();
-
+  const [isOpen] = useSetAside();
   const asideButtons = [
     {
       name: "홈",
@@ -31,14 +31,13 @@ const Aside = React.memo((props) => {
   ];
 
   return (
-    <Style.Aside $type={isMenuClicked ? true : false} onClick={clickEvent}>
+    <Style.Aside $type={isOpen ? true : false} onClick={clickEvent}>
       {asideButtons.map((element, index) => (
         <Style.Buttons
           key={index}
-          $type={isMenuClicked ? true : false}
+          $type={isOpen ? true : false}
           data-button-id={index}
         >
-          {/* <image style={{ backgroundImage: `url(${element.image})` }} /> */}
           <element.image />
           <p>{element.name}</p>
         </Style.Buttons>

@@ -1,8 +1,7 @@
 import Style from "./style";
 import { Avatar } from "Shared/asset/avatar";
 
-const CommentInput = (props) => {
-  const { mode, darkColor } = props;
+const CommentInput = () => {
   return (
     <Style.Container>
       <Style.Button $type="hover" />

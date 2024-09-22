@@ -8,16 +8,18 @@ import { Video } from "../asset/video";
 import { Youtube } from "../asset/youtube";
 import { Avatar } from "Shared/asset/avatar";
 import { Voice } from "../asset/voice";
+import useSetAside from "Shared/recoil/useSetAside";
 
 const Header = (props) => {
-  const { mode, menuClick, switchTheme, darkColor } = props;
+  const { switchTheme } = props;
+  const [, setAsideEvent] = useSetAside();
 
   const returnHome = useLogoClick();
 
   return (
     <Style.Container $type="header">
       <Style.Container $type="side_box">
-        <Style.Button $type="menu" onClick={menuClick}>
+        <Style.Button $type="menu" onClick={setAsideEvent}>
           <Menu />
         </Style.Button>
 

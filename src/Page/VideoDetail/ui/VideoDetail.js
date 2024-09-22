@@ -9,9 +9,7 @@ import useVideoClick from "Shared/model/useVideoClick";
 
 import Style from "./style";
 
-const VideoDetail = (props) => {
-  const { mode, darkColor } = props;
-
+const VideoDetail = () => {
   const videoId = useGetQueryString();
   const video = useGetVideoByIdx(videoId);
   const commentList = useCommentData(5);
@@ -46,18 +44,11 @@ const VideoDetail = (props) => {
               <Style.Text $type="comment_count">
                 댓글 {commentList.length}개
               </Style.Text>
-              <CommentInput mode={mode} darkColor={darkColor} />
+              <CommentInput />
               <Style.Container $type="comment">
                 {commentList.length > 0 ? (
                   commentList.map((element, index) => {
-                    return (
-                      <Comment
-                        key={index}
-                        element={element}
-                        mode={mode}
-                        darkColor={darkColor}
-                      />
-                    );
+                    return <Comment key={index} element={element} />;
                   })
                 ) : (
                   <p>로딩</p>
@@ -69,7 +60,7 @@ const VideoDetail = (props) => {
       </>
       <Style.Section $type="preview" onClick={handleVideoClick}>
         {relateVideoData?.map((element, index) => (
-          <RelatedVideo key={index} element={element} mode={mode} />
+          <RelatedVideo key={index} element={element} />
         ))}
       </Style.Section>
     </Style.Container>

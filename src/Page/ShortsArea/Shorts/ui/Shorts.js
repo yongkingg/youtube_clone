@@ -89,7 +89,6 @@ const Shorts = React.memo((props) => {
                   key={index}
                   $width="48px"
                   $height="48px"
-                  $bgColor="black"
                   $image={element.image}
                 />
                 {shortsData[element.id] && <p>{shortsData[element.id]}</p>}
@@ -100,11 +99,7 @@ const Shorts = React.memo((props) => {
       </Style.Main>
 
       <Style.Main $type="comment" $animation={isCommentBtnClicked}>
-        <Style.Container
-          $type="comment_tool"
-          $bgColor={mode.bgColor}
-          $fontColor={mode.fontColor}
-        >
+        <Style.Container $type="comment_tool">
           <h1>댓글</h1>
           <h3>{shortsData.commentCount}</h3>
           <Style.ToolBtn
@@ -126,25 +121,17 @@ const Shorts = React.memo((props) => {
           ></Style.ToolBtn>
         </Style.Container>
         {
-          <Style.Container $type="comment_list" $bgColor={mode.bgColor}>
+          <Style.Container $type="comment_list">
             {Object.keys(shortsData).length ? (
               shortsData.comment.map((element, index) => {
-                return (
-                  <Comment
-                    key={index}
-                    $type={element.id}
-                    element={element}
-                    mode={mode}
-                    darkColor={darkColor}
-                  />
-                );
+                return <Comment key={index} element={element} />;
               })
             ) : (
               <p>로딩중</p>
             )}
           </Style.Container>
         }
-        {<CommentInput mode={mode} darkColor={darkColor} />}
+        {<CommentInput />}
       </Style.Main>
     </Style.Container>
   );

@@ -9,10 +9,7 @@ const Page = (props) => {
   return (
     <Routes>
       <Route path="/" element={<Main mode={mode} />} />
-      <Route
-        path="/video_detail"
-        element={<VideoDetail mode={mode} darkColor={darkColor} />}
-      />
+      <Route path="/video_detail" element={<VideoDetail />} />
       <Route
         path="/shorts"
         element={<ShortsArea mode={mode} darkColor={darkColor} />}

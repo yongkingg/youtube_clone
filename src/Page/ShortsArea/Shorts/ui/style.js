@@ -140,7 +140,7 @@ export default {
 
         case "comment_tool":
           return css`
-            background-color: ${(props) => props.$bgColor};
+            background-color: ${(props) => props.theme.bgColor};
             border-radius: 24px;
             padding: 4px 16px;
             display: flex;
@@ -148,14 +148,14 @@ export default {
             align-items: flex-end;
 
             h1 {
-              color: ${(props) => props.$fontColor};
+              color: ${(props) => props.theme.fontColor};
               font-family: var(--main-font);
               font-size: 20px;
               font-weight: 900;
             }
 
             h3 {
-              color: ${(props) => props.$fontColor};
+              color: ${(props) => props.theme.fontColor};
               font-family: var(--main-font);
               font-size: 16px;
               margin-left: 16px;
@@ -164,7 +164,7 @@ export default {
 
         case "comment_list":
           return css`
-            background-color: ${(props) => props.$bgColor};
+            background-color: ${(props) => props.theme.bgColor};
             padding: 4px 16px;
             height: calc(100% - 121px);
             overflow-y: auto;
@@ -209,7 +209,7 @@ export default {
   ToolBtn: styled.div`
     width: ${(props) => props.$width};
     height: ${(props) => props.$height};
-    background-color: ${(props) => props.$bgColor};
+    background-color: ${(props) => props.theme.bgColor};
     border-radius: 50%;
     background-size: 24px !important;
     background-position: center;

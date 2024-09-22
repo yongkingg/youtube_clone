@@ -20,18 +20,9 @@ const App = () => {
       <Router>
         <ResetStyle />
         <GlobalStyle />
-        <Header
-          mode={mode}
-          menuClick={toggleMenu}
-          switchTheme={switchTheme}
-          darkColor={darkColor}
-        />
+        <Header switchTheme={switchTheme} />
         <Container>
-          <Aside
-            mode={mode}
-            isMenuClicked={isMenuClicked}
-            darkColor={darkColor}
-          />
+          <Aside />
           <Page mode={mode} darkColor={darkColor} />
         </Container>
       </Router>
