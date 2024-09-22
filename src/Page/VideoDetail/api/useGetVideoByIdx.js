@@ -1,5 +1,4 @@
-import React from "react";
-import useVideoData from "Shared/api/useVideoData";
+import useVideoData from "Page/Main/api/useVideoData";
 
 const useGetVideoByIdx = (props) => {
   const index = parseInt(props, 10);
