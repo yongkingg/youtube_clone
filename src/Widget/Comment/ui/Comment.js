@@ -1,7 +1,7 @@
 import Style from "./style";
 import Avatar from "Shared/asset/avatar";
-import { Like } from "../asset/like";
-import { Dislike } from "../asset/dislike";
+import Like from "../asset/like";
+import Dislike from "../asset/dislike";
 const Comment = (props) => {
   const { element } = props;
 

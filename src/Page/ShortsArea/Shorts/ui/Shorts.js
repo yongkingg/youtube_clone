@@ -11,7 +11,7 @@ import CommentExit from "../asset/comment_exit";
 import CommentIcon from "../asset/comment_icon";
 import CommentMenu from "../asset/comment_menu";
 import Dislike from "../asset/dislike";
-import ShortsLike from "../asset/like";
+import ShortsLike from "../../../../Shared/asset/like";
 import Share from "../asset/share";
 import Option from "../asset/option";
 import Play from "../asset/play";
