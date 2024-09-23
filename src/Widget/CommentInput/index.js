@@ -1,5 +1,5 @@
 import Style from "./style";
-import { Avatar } from "Shared/asset/avatar";
+import Avatar from "Shared/asset/avatar";
 
 const CommentInput = () => {
   return (

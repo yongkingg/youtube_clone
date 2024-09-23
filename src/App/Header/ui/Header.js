@@ -1,15 +1,13 @@
 import { useLogoClick } from "../../model/useLogoClick";
-
-import Style from "./style";
-import { Menu } from "../asset/menu";
-import { Alert } from "../asset/alert";
-import { Search } from "../asset/search";
-import { Video } from "../asset/video";
-import { Youtube } from "../asset/youtube";
-import { Avatar } from "Shared/asset/avatar";
-import { Voice } from "../asset/voice";
 import useSetAside from "Shared/recoil/useSetAside";
-
+import Menu from "../asset/menu";
+import Youtube from "../asset/youtube";
+import Search from "../asset/search";
+import Style from "./style";
+import Voice from "../asset/voice";
+import Video from "../asset/video";
+import Alert from "../asset/alert";
+import Avatar from "Shared/asset/avatar";
 const Header = (props) => {
   const { switchTheme } = props;
   const [, setAsideEvent] = useSetAside();
