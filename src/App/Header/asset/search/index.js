@@ -5,7 +5,7 @@ import { useTheme } from "styled-components";
 const Search = () => {
   const theme = useTheme();
   const icon =
-    theme.iconColor == "var(--dark-color)" ? search_black : search_white;
+    theme.iconColor == "var(--dark-color)" ? search_black : search_black;
   return <img src={icon} />;
 };
 

@@ -5,7 +5,7 @@ import { useTheme } from "styled-components";
 const Voice = () => {
   const theme = useTheme();
   const icon =
-    theme.iconColor == "var(--dark-color)" ? voice_black : voice_white;
+    theme.iconColor == "var(--dark-color)" ? voice_black : voice_black;
   return <img src={icon} />;
 };
 

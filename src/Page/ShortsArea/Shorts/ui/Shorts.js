@@ -7,18 +7,17 @@ import { useSwitchClick } from "../model/useSwitchClick";
 
 import Style from "./style";
 
-import { ShortsLike } from "../asset/shorts_like";
-import { ShortsDislike } from "../asset/shorts_dislike";
-import { CommentExit } from "../asset/comment_exit";
-import { CommentMenu } from "../asset/comment_menu";
-import { CommentIcon } from "../asset/comment_icon";
-import { Mute } from "../asset/mute";
-import { UnMute } from "../asset/un_mute";
-import { Dislike } from "Widget/Comment/asset/dislike";
-import { Share } from "../asset/share";
-import { Option } from "../asset/option";
-import { Play } from "../asset/play";
-import { Pause } from "../asset/pause";
+import CommentExit from "../asset/comment_exit";
+import CommentIcon from "../asset/comment_icon";
+import CommentMenu from "../asset/comment_menu";
+import Dislike from "../asset/dislike";
+import ShortsLike from "../asset/like";
+import Share from "../asset/share";
+import Option from "../asset/option";
+import Play from "../asset/play";
+import Pause from "../asset/pause";
+import Mute from "../asset/mute";
+import UnMute from "../asset/un_mute";
 
 const Shorts = React.memo(() => {
   const [shortsData] = useShortData();
