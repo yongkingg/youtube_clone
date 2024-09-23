@@ -1,6 +1,5 @@
 import Aside from "./Aside";
 import Header from "./Header";
-import useMenuClick from "App/model/useMenuClick";
 import React from "react";
 import Container from "./style/index";
 import { BrowserRouter as Router } from "react-router-dom";
@@ -12,7 +11,6 @@ import { useSwitchTheme } from "./model/useSwitchTheme";
 
 const App = () => {
   const [mode, switchTheme] = useSwitchTheme();
-  const darkColor = "var(--dark-color)";
 
   return (
     <ThemeProvider theme={mode}>

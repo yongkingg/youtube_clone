@@ -2,10 +2,10 @@ import React from "react";
 import Style from "./style";
 import useAsideClickEvent from "../model/useAsideClickEvent";
 
-import Home from "../asset/home";
-import Shorts from "../asset/shorts";
-import Subscribe from "../asset/subscribe";
-import Me from "../asset/me";
+import Home from "../asset/Home";
+import Shorts from "../asset/Shorts";
+import Subscribe from "../asset/Subscribe";
+import Me from "../asset/Me";
 import useSetAside from "Shared/recoil/useSetAside";
 
 const Aside = React.memo(() => {
