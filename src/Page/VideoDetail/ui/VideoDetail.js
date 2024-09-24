@@ -3,7 +3,7 @@ import RelatedVideo from "../RelatedVideo/ui/RelatedVideo";
 import useCommentData from "../api/useCommentData";
 import Comment from "Widget/Comment";
 import CommentInput from "Widget/CommentInput";
-import useGetQueryString from "Shared/model/useGetQueryString";
+import useGetQueryString from "Page/Main/model/useGetQueryString";
 import useGetVideoByIdx from "Page/VideoDetail/api/useGetVideoByIdx";
 import useVideoClick from "Shared/model/useVideoClick";
 
