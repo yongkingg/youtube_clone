@@ -1,13 +1,12 @@
 import Aside from "./Aside";
 import Header from "./Header";
 import React from "react";
-import Container from "./style/index";
 import { BrowserRouter as Router } from "react-router-dom";
 import Page from "../Page";
 import { ThemeProvider } from "styled-components";
-import { ResetStyle } from "../Shared/style/reset.js";
-import { GlobalStyle } from "../Shared/style/globalStyle";
+import { GlobalStyle } from "./style/globalStyle";
 import { useSwitchTheme } from "./model/useSwitchTheme";
+import Style from "./style/index";
 
 const App = () => {
   const [mode, switchTheme] = useSwitchTheme();
@@ -15,13 +14,12 @@ const App = () => {
   return (
     <ThemeProvider theme={mode}>
       <Router>
-        <ResetStyle />
         <GlobalStyle />
         <Header switchTheme={switchTheme} />
-        <Container>
+        <Style.Container>
           <Aside />
           <Page />
-        </Container>
+        </Style.Container>
       </Router>
     </ThemeProvider>
   );

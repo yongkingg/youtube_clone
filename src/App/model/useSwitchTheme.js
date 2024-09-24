@@ -1,20 +1,19 @@
 import React, { useEffect } from "react";
-import { theme } from "Shared/style/themes";
+import { dark, light } from "../style/theme";
 
 export const useSwitchTheme = () => {
-  const [mode, setMode] = React.useState(theme.light);
-
+  const [mode, setMode] = React.useState(light);
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme) {
-      setMode(savedTheme === "dark" ? theme.dark : theme.light);
+      setMode(savedTheme === "dark" ? dark : light);
     }
   }, []);
 
   const switchTheme = () => {
-    const newMode = mode === theme.light ? theme.dark : theme.light;
+    const newMode = mode === light ? dark : light;
     setMode(newMode);
-    localStorage.setItem("theme", newMode === theme.dark ? "dark" : "light");
+    localStorage.setItem("theme", newMode === dark ? "dark" : "light");
   };
 
   return [mode, switchTheme];
