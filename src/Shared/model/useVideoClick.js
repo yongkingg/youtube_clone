@@ -5,7 +5,7 @@ const useVideoClick = () => {
   const handleVideoClick = (e) => {
     try {
       const videoId = e.target.closest(`[data-role="video"]`).dataset.videoId;
-      navigate(`/video_detail?video=${videoId}`);
+      navigate(`/video_detail/video=${videoId}`);
     } catch (error) {
       console.error("Error in videoClickEvent:", error);
     }

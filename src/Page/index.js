@@ -8,7 +8,7 @@ const Page = () => {
   return (
     <Routes>
       <Route path="/" element={<Main />} />
-      <Route path="/video_detail" element={<VideoDetail />} />
+      <Route path="/video_detail/:videoId" element={<VideoDetail />} />
       <Route path="/shorts" element={<ShortsArea />} />
     </Routes>
   );

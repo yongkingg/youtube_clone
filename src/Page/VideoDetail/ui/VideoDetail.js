@@ -11,6 +11,7 @@ import Style from "./style";
 
 const VideoDetail = () => {
   const videoId = useGetQueryString();
+  console.log(videoId);
   const video = useGetVideoByIdx(videoId);
   const commentList = useCommentData(5);
   const handleVideoClick = useVideoClick();

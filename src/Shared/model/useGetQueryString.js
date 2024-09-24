@@ -1,9 +1,7 @@
-import { useLocation } from "react-router-dom";
-
+import { useParams } from "react-router-dom";
 const useGetQueryString = () => {
-  const location = useLocation();
-  const query = new URLSearchParams(location.search);
-  const videoId = query.get("video");
+  const param = useParams();
+  const videoId = param.videoId.split("=")[1];
   return videoId;
 };
 
