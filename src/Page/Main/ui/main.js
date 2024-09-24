@@ -1,6 +1,6 @@
-import useVideoData from "../api/useVideoData";
+import useVideoData from "../../../entities/useVideoData";
 import Video from "../video/video";
-import useVideoClick from "Shared/model/useVideoClick";
+import useVideoClick from "Page/VideoDetail/model/useVideoClick";
 import Style from "./style";
 
 const Main = () => {

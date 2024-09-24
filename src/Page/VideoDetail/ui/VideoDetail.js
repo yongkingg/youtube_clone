@@ -1,16 +1,15 @@
-import useRelatedVideoData from "Page/VideoDetail/RelatedVideo/api/useRelatedVideoData";
-import RelatedVideo from "../RelatedVideo/ui/RelatedVideo";
-import useCommentData from "../api/useCommentData";
+import useRelatedVideoData from "entities/useRelatedVideoData";
+import RelatedVideo from "../RelatedVideo/RelatedVideo";
+import useCommentData from "../../../entities/useCommentData";
 import Comment from "Widget/Comment";
 import CommentInput from "Widget/CommentInput";
-import useGetQueryString from "Page/Main/model/useGetQueryString";
-import useGetVideoByIdx from "Page/VideoDetail/api/useGetVideoByIdx";
-import useVideoClick from "Shared/model/useVideoClick";
-
+import useGetVideoByIdx from "entities/useGetVideoByIdx";
+import useVideoClick from "Page/VideoDetail/model/useVideoClick";
 import Style from "./style";
+import useGetVideoId from "Page/VideoDetail/model/useGetVideoId";
 
 const VideoDetail = () => {
-  const videoId = useGetQueryString();
+  const videoId = useGetVideoId();
   console.log(videoId);
   const video = useGetVideoByIdx(videoId);
   const commentList = useCommentData(5);
