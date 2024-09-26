@@ -1,24 +1,15 @@
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { changePage } from "Shared/reudx/action";
 const useAsideClickEvent = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const clickEvent = (e) => {
     try {
-      let clickedBtn = parseInt(e.target.closest("a").dataset.buttonId, 10);
-      switch (clickedBtn) {
-        case 0:
-          navigate("/");
-          break;
-        case 1:
-          navigate("/shorts");
-          break;
-        case 3:
-          console.log("구독");
-          break;
-        case 4:
-          console.log("나");
-          break;
-      }
+      let path = e.target.closest("a").dataset.buttonPath;
+      dispatch(changePage(path));
+      navigate(path);
     } catch (e) {
       console.log(e);
     }

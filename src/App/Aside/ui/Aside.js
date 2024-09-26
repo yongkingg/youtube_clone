@@ -11,14 +11,17 @@ import { useSelector } from "react-redux";
 const Aside = React.memo(() => {
   const isOpen = useSelector((state) => state.aside);
   const clickEvent = useAsideClickEvent();
+
   const asideButtons = [
     {
       name: "홈",
       image: Home,
+      path: "/",
     },
     {
       name: "Shorts",
       image: Shorts,
+      path: "/shorts",
     },
     {
       name: "구독",
@@ -37,6 +40,7 @@ const Aside = React.memo(() => {
           key={index}
           $type={isOpen ? true : false}
           data-button-id={index}
+          data-button-path={element.path}
         >
           <element.image />
           <p>{element.name}</p>
