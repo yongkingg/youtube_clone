@@ -7,15 +7,24 @@ import Voice from "../asset/voice";
 import Video from "../asset/video";
 import Alert from "../asset/alert";
 import Avatar from "Shared/asset/avatar";
+import { useDispatch, useSelector } from "react-redux";
+import { changeAside } from "Shared/reudx/action";
+
 const Header = (props) => {
   const { switchTheme } = props;
+  const isOpen = useSelector((state) => state.aside);
 
   const returnHome = useLogoClick();
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    dispatch(changeAside(!isOpen));
+  };
 
   return (
     <Style.Container $type="header">
       <Style.Container $type="side_box">
-        <Style.Button $type="menu">
+        <Style.Button $type="menu" onClick={handleClick}>
           <Menu />
         </Style.Button>
 
