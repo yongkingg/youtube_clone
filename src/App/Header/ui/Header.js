@@ -1,5 +1,4 @@
 import { useLogoClick } from "../../model/useLogoClick";
-import useSetAside from "Shared/recoil/useSetAside";
 import Menu from "../asset/menu";
 import Youtube from "../asset/youtube";
 import Search from "../asset/search";
@@ -10,14 +9,13 @@ import Alert from "../asset/alert";
 import Avatar from "Shared/asset/avatar";
 const Header = (props) => {
   const { switchTheme } = props;
-  const [, setAsideEvent] = useSetAside();
 
   const returnHome = useLogoClick();
 
   return (
     <Style.Container $type="header">
       <Style.Container $type="side_box">
-        <Style.Button $type="menu" onClick={setAsideEvent}>
+        <Style.Button $type="menu">
           <Menu />
         </Style.Button>
 

@@ -6,11 +6,11 @@ import Home from "../asset/home";
 import Shorts from "../asset/shorts";
 import Subscribe from "../asset/subscribe";
 import Me from "../asset/me";
-import useSetAside from "Shared/recoil/useSetAside";
+import { useSelector } from "react-redux";
 
 const Aside = React.memo(() => {
+  const isOpen = useSelector((state) => state.aside);
   const clickEvent = useAsideClickEvent();
-  const [isOpen] = useSetAside();
   const asideButtons = [
     {
       name: "홈",

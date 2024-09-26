@@ -10,7 +10,6 @@ import Style from "./style/index";
 
 const App = () => {
   const [mode, switchTheme] = useSwitchTheme();
-
   return (
     <ThemeProvider theme={mode}>
       <Router>

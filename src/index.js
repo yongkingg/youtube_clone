@@ -1,9 +1,10 @@
+import { Provider } from "react-redux";
 import App from "./App";
 import ReactDOM from "react-dom/client";
-import { RecoilRoot } from "recoil";
+import store from "Shared/reudx/reducer";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <RecoilRoot>
+  <Provider store={store}>
     <App />
-  </RecoilRoot>
+  </Provider>
 );
